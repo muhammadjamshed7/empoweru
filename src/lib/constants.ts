@@ -1,6 +1,6 @@
 
 import type { LucideIcon } from 'lucide-react';
-import { Brain, Dumbbell, BookOpen, Code2, Sparkles, Home, ListChecks, User, Settings, Zap, Lightbulb, Puzzle, Target, Timer, Layers, Move, Sunrise, Shield, Activity, Scale, BarChart3, ChevronRight, Briefcase, GraduationCap, Users, Rocket, Palette, Film, Landmark, TrendingUp, Cpu, FlaskConical, Atom, Leaf, Microscope, Paintbrush, Newspaper, Megaphone, BookHeart, BrainCog, Bot, BrainCircuit, ExternalLink } from 'lucide-react';
+import { Brain, Dumbbell, BookOpen, Code2, Sparkles, Home, ListChecks, User, Settings, Zap, Lightbulb, Puzzle, Target, Timer, Layers, Move, Sunrise, Shield, Activity, Scale, BarChart3, ChevronRight, Briefcase, GraduationCap, Users, Rocket, Palette, Film, Landmark, TrendingUp, Cpu, FlaskConical, Atom, Leaf, Microscope, Paintbrush, Newspaper, Megaphone, BookHeart, BrainCog, Bot, BrainCircuit, ExternalLink, Map } from 'lucide-react';
 
 export interface NavItem {
   title: string;
@@ -393,6 +393,141 @@ export const trendingTechnologies: TrendingTech[] = [
   },
 ];
 
+// Python Quiz Section
+export interface QuizOption {
+  text: string;
+  isCorrect: boolean;
+}
+
+export interface PythonQuizQuestion {
+  id: string;
+  questionText: string;
+  options: QuizOption[];
+  explanation?: string;
+}
+
+export interface PythonQuizDifficulty {
+  level: 'Easy' | 'Intermediate' | 'Hard';
+  questions: PythonQuizQuestion[];
+}
+
+export const pythonQuizData: PythonQuizDifficulty[] = [
+  {
+    level: 'Easy',
+    questions: [
+      {
+        id: 'e1',
+        questionText: "What keyword is used to define a function in Python?",
+        options: [
+          { text: "func", isCorrect: false },
+          { text: "def", isCorrect: true },
+          { text: "function", isCorrect: false },
+          { text: "define", isCorrect: false },
+        ],
+        explanation: "'def' is the keyword used to define a function in Python."
+      },
+      {
+        id: 'e2',
+        questionText: "Which of these is a valid variable name in Python?",
+        options: [
+          { text: "my-variable", isCorrect: false },
+          { text: "2variable", isCorrect: false },
+          { text: "my_variable", isCorrect: true },
+          { text: "$variable", isCorrect: false },
+        ],
+        explanation: "Python variable names can contain letters, numbers, and underscores, but cannot start with a number or contain hyphens or special characters like '$'."
+      },
+      {
+        id: 'e3',
+        questionText: "What is the output of `print(10 / 2)` in Python 3?",
+        options: [
+          { text: "5", isCorrect: false },
+          { text: "5.0", isCorrect: true },
+          { text: "Error", isCorrect: false },
+          { text: "10/2", isCorrect: false },
+        ],
+        explanation: "In Python 3, division (/) always results in a float."
+      }
+    ]
+  },
+  {
+    level: 'Intermediate',
+    questions: [
+      {
+        id: 'i1',
+        questionText: "What does the `append()` method do for a list in Python?",
+        options: [
+          { text: "Removes an item from the list", isCorrect: false },
+          { text: "Adds an item to the beginning of the list", isCorrect: false },
+          { text: "Adds an item to the end of the list", isCorrect: true },
+          { text: "Sorts the list", isCorrect: false },
+        ],
+        explanation: "The `append()` method adds a single item to the end of an existing list."
+      },
+      {
+        id: 'i2',
+        questionText: "Which loop is best suited for iterating a specific number of times?",
+        options: [
+          { text: "while loop", isCorrect: false },
+          { text: "for loop with range()", isCorrect: true },
+          { text: "if/else statement", isCorrect: false },
+          { text: "do-while loop (Python doesn't have this)", isCorrect: false },
+        ],
+        explanation: "A `for` loop combined with `range()` (e.g., `for i in range(5):`) is ideal for executing a block of code a predetermined number of times."
+      },
+      {
+        id: 'i3',
+        questionText: "How do you access the value associated with the key 'name' in a dictionary `my_dict`?",
+        options: [
+          { text: "my_dict.get_value('name')", isCorrect: false },
+          { text: "my_dict.name", isCorrect: false },
+          { text: "my_dict['name']", isCorrect: true },
+          { text: "my_dict('name')", isCorrect: false },
+        ],
+        explanation: "You use square bracket notation `my_dict['key']` or the `get()` method `my_dict.get('key')` to access values in a dictionary."
+      }
+    ]
+  },
+  {
+    level: 'Hard',
+    questions: [
+      {
+        id: 'h1',
+        questionText: "What is the primary purpose of a `try-except` block in Python?",
+        options: [
+          { text: "To speed up code execution", isCorrect: false },
+          { text: "To define reusable blocks of code", isCorrect: false },
+          { text: "To handle potential runtime errors gracefully", isCorrect: true },
+          { text: "To create conditional logic", isCorrect: false },
+        ],
+        explanation: "`try-except` blocks are used for error handling, allowing the program to manage exceptions that might occur during runtime without crashing."
+      },
+      {
+        id: 'h2',
+        questionText: "What will `my_list = [1, 2, 3, 4, 5]; print(my_list[-2:])` output?",
+        options: [
+          { text: "[4, 5]", isCorrect: true },
+          { text: "[1, 2, 3, 4]", isCorrect: false },
+          { text: "[3, 4, 5]", isCorrect: false },
+          { text: "Error", isCorrect: false },
+        ],
+        explanation: "Slicing with `[-2:]` starts from the second to last element and goes to the end of the list."
+      },
+       {
+        id: 'h3',
+        questionText: "In Python, a function that does not explicitly use a `return` statement will return what value by default?",
+        options: [
+          { text: "0", isCorrect: false },
+          { text: "None", isCorrect: true },
+          { text: "True", isCorrect: false },
+          { text: "An error will occur", isCorrect: false },
+        ],
+        explanation: "If a function doesn't have an explicit `return` statement, or has a `return` statement without a value, it implicitly returns `None`."
+      }
+    ]
+  }
+];
+
 
 // Placeholder for educational zone icons
 export { BookOpen as EduBookOpenIcon, Lightbulb as EduLightbulbIcon, Briefcase as EduBriefcaseIcon, GraduationCap as EduGraduationCapIcon, Users as EduUsersIcon, Rocket as EduRocketIcon, Palette as EduPaletteIcon, Film as EduFilmIcon, Landmark as EduLandmarkIcon, TrendingUp as EduTrendingUpIcon, Cpu as EduCpuIcon, FlaskConical as EduFlaskIcon, Atom as EduAtomIcon, Leaf as EduLeafIcon, Microscope as EduMicroscopeIcon, Paintbrush as EduPaintbrushIcon, Newspaper as EduNewspaperIcon, Megaphone as EduMegaphoneIcon };
@@ -401,5 +536,5 @@ export { BrainCog as EduBrainCogIcon };
 
 // Export new icons for AI/Tech page
 export { Bot as BotIcon, BrainCircuit as BrainCircuitIcon, ExternalLink as ExternalLinkIcon };
-
+export { Map as MapIcon };
     

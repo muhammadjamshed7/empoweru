@@ -2,7 +2,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowLeft, Code2, Map } from "lucide-react"; // Added Map icon
+import { ArrowLeft, Code2, Map, CheckSquare } from "lucide-react"; 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import {
@@ -11,6 +11,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { PythonQuizSection } from "@/components/programming-practice/PythonQuizSection";
+
 
 interface PythonTopic {
   id: string;
@@ -532,6 +534,22 @@ export default function ProgrammingPracticePage() {
           </Accordion>
         </CardContent>
       </Card>
+
+      <Card className="shadow-xl mb-12">
+        <CardHeader>
+          <CardTitle className="font-headline text-2xl text-foreground flex items-center">
+             <CheckSquare className="mr-3 h-7 w-7 text-accent" />
+            Test Your Python Knowledge!
+          </CardTitle>
+          <CardDescription className="font-body break-words">
+            Select a difficulty and see how much you've learned.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <PythonQuizSection />
+        </CardContent>
+      </Card>
+
 
       <div className="text-center">
         <Button asChild variant="outline" size="lg">
