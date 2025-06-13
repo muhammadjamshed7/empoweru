@@ -1,4 +1,6 @@
 
+"use client";
+
 import Link from "next/link";
 import { ArrowLeft, Dumbbell, Zap, Move, Sunrise, Shield, Activity, Scale, BarChart3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
