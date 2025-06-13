@@ -35,10 +35,10 @@ export function BmiCalculator() {
   const form = useForm<BmiFormValues>({
     resolver: zodResolver(bmiFormSchema),
     defaultValues: {
-      age: undefined, // Let placeholder show
+      age: '', 
       gender: undefined,
-      height: undefined,
-      weight: undefined,
+      height: '',
+      weight: '',
     },
   });
 
