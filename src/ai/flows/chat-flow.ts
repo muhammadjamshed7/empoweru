@@ -12,7 +12,7 @@ import { ai } from '@/ai/genkit';
 import { z } from 'genkit';
 
 // IMPORTANT: Replace with your actual OpenRouter API Key
-const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY || '<OPENROUTER_API_KEY>';
+const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY || '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';
 const YOUR_SITE_URL = process.env.YOUR_SITE_URL || '<YOUR_SITE_URL>'; // Optional, for OpenRouter ranking
 const YOUR_SITE_NAME = process.env.YOUR_SITE_NAME || '<YOUR_SITE_NAME>'; // Optional, for OpenRouter ranking
 
