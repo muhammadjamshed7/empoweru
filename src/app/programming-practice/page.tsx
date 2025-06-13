@@ -40,10 +40,30 @@ const pythonTopics: PythonTopic[] = [
         <p className="mb-2 break-words">Python's versatility opens doors to numerous exciting career paths and applications:</p>
         <ul className="list-disc list-inside space-y-1 mb-2 break-words">
           <li>
-            <strong>Full-Stack Web Development:</strong> Build dynamic websites and web applications using powerful frameworks like <strong>Django</strong> (for robust, large-scale projects) and <strong>Flask</strong> (for lightweight, flexible applications). Python handles both the backend (server-side logic, databases) and can integrate with frontend technologies.
+            <strong>Data Science & Analytics:</strong> Analyze data, create visualizations, and extract meaningful insights. Libraries like <strong>Pandas</strong> for data manipulation, <strong>NumPy</strong> for numerical operations, and <strong>Matplotlib/Seaborn</strong> for plotting are industry standards.
           </li>
           <li>
-            <strong>Data Science & Analytics:</strong> Analyze data, create visualizations, and extract meaningful insights. Libraries like <strong>Pandas</strong> for data manipulation, <strong>NumPy</strong> for numerical operations, and <strong>Matplotlib/Seaborn</strong> for plotting are industry standards.
+            <strong>Full-Stack Web Development:</strong> Build dynamic websites and web applications. Python handles the backend (server-side logic, databases) and can integrate with frontend technologies.
+            <p className="font-semibold mt-2 mb-1 pl-4 break-words">Key Frameworks:</p>
+            <ul className="list-disc list-inside ml-6 space-y-0.5 mb-1 break-words">
+                <li><strong>Django:</strong> A high-level framework for rapid development of secure and maintainable websites. Great for large, complex projects.</li>
+                <li><strong>Flask:</strong> A lightweight microframework, flexible and easier to start with for smaller applications or APIs.</li>
+            </ul>
+            <p className="font-semibold mt-2 mb-1 pl-4 break-words">Basic Web Dev Roadmap with Python:</p>
+            <ol className="list-decimal list-inside ml-6 space-y-0.5 break-words">
+                <li>Understand HTML, CSS, and JavaScript (the basics of how websites look and interact in the browser).</li>
+                <li>Master Python fundamentals (variables, control flow, functions, data structures).</li>
+                <li>Choose a framework (Flask or Django) and learn its core concepts:
+                    <ul className="list-disc list-inside ml-6 space-y-0.5">
+                        <li>Routing (how URLs map to code).</li>
+                        <li>Templates (how to display dynamic data in HTML).</li>
+                        <li>Forms (how to handle user input).</li>
+                        <li>Database interaction (how to store and retrieve data, e.g., using Django ORM or SQLAlchemy with Flask).</li>
+                    </ul>
+                </li>
+                <li>Build small projects to practice.</li>
+                <li>Learn about deployment (how to get your web app online).</li>
+            </ol>
           </li>
           <li>
             <strong>Machine Learning & Artificial Intelligence (AI):</strong> Develop predictive models, natural language processing tools, computer vision systems, and more. Python is the go-to language for AI/ML with libraries like <strong>Scikit-learn</strong>, <strong>TensorFlow</strong>, and <strong>PyTorch</strong>.
