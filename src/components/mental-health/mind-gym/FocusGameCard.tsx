@@ -7,8 +7,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 
-const GAME_AREA_SIZE = 200; // px
-const DOT_SIZE = 20; // px
+const GAME_AREA_SIZE = 200; 
+const DOT_SIZE = 20; 
 const GAME_DURATION = 10; // seconds
 const DOT_MOVE_INTERVAL = 800; // ms
 
@@ -38,26 +38,8 @@ export function FocusGameCard() {
     };
   };
 
-  const endGame = useCallback(() => {
-    setGameActive(false); // This will trigger the useEffect cleanup for intervals
-    // Defer the toast to prevent updates during render phase of other components
-    setTimeout(() => {
-      toast({ title: "Game Over!", description: `Your score: ${scoreRef.current}` });
-    }, 0);
-  }, [toast]); // setGameActive is stable, scoreRef.current is accessed inside
-
+  // Effect for game timer and dot movement
   useEffect(() => {
-    const clearAllIntervals = () => {
-      if (timerIntervalRef.current) {
-        clearInterval(timerIntervalRef.current);
-        timerIntervalRef.current = null;
-      }
-      if (dotMoveIntervalRef.current) {
-        clearInterval(dotMoveIntervalRef.current);
-        dotMoveIntervalRef.current = null;
-      }
-    };
-
     if (gameActive) {
       setDotPosition(getRandomPosition()); 
       
@@ -68,34 +50,75 @@ export function FocusGameCard() {
       timerIntervalRef.current = setInterval(() => {
         setTimeLeft((prevTimeLeft) => {
           if (prevTimeLeft <= 1) {
-            clearAllIntervals(); 
-            endGame(); 
+            if (timerIntervalRef.current) clearInterval(timerIntervalRef.current); 
+            timerIntervalRef.current = null;
             return 0; 
           }
           return prevTimeLeft - 1; 
         });
       }, 1000);
     } else {
-      clearAllIntervals();
+      // Game is not active, clear intervals
+      if (dotMoveIntervalRef.current) {
+        clearInterval(dotMoveIntervalRef.current);
+        dotMoveIntervalRef.current = null;
+      }
+      if (timerIntervalRef.current) {
+        clearInterval(timerIntervalRef.current);
+        timerIntervalRef.current = null;
+      }
     }
 
     return () => {
-      clearAllIntervals();
+      // Cleanup all intervals on unmount or if gameActive changes state
+      if (dotMoveIntervalRef.current) {
+        clearInterval(dotMoveIntervalRef.current);
+        dotMoveIntervalRef.current = null;
+      }
+      if (timerIntervalRef.current) {
+        clearInterval(timerIntervalRef.current);
+        timerIntervalRef.current = null;
+      }
     };
-  }, [gameActive, endGame]);
+  }, [gameActive]);
+
+  // Effect to handle game ending when timeLeft reaches 0
+  useEffect(() => {
+    if (timeLeft === 0 && gameActive) { 
+      // Ensure dot movement interval is cleared
+      if (dotMoveIntervalRef.current) {
+        clearInterval(dotMoveIntervalRef.current);
+        dotMoveIntervalRef.current = null;
+      }
+      
+      setGameActive(false); 
+
+      setTimeout(() => {
+        toast({ title: "Game Over!", description: `Your score: ${scoreRef.current}` });
+      }, 0);
+    }
+  }, [timeLeft, gameActive, toast]);
 
   const startGame = () => {
     setScore(0);
-    scoreRef.current = 0; 
     setTimeLeft(GAME_DURATION);
     setGameActive(true); 
-    toast({ title: "Game Started!", description: "Tap the moving dot." });
+    setTimeout(() => {
+        toast({ title: "Game Started!", description: "Tap the moving dot." });
+    }, 0);
   };
 
   const handleDotClick = () => {
     if (gameActive) {
       setScore((prevScore) => prevScore + 1);
-      setDotPosition(getRandomPosition()); 
+      // Move dot immediately and reset its move interval
+      setDotPosition(getRandomPosition());
+      if (dotMoveIntervalRef.current) {
+        clearInterval(dotMoveIntervalRef.current);
+      }
+      dotMoveIntervalRef.current = setInterval(() => {
+        setDotPosition(getRandomPosition());
+      }, DOT_MOVE_INTERVAL);
     }
   };
 
