@@ -1,6 +1,6 @@
 
 import type { LucideIcon } from 'lucide-react';
-import { Brain, Dumbbell, BookOpen, Code2, Sparkles, Home, ListChecks, User, Settings, Zap, Lightbulb, Puzzle, Target, Timer, Layers, Move, Sunrise, Shield, Activity, Scale, BarChart3, ChevronRight, Briefcase, GraduationCap, Users, Rocket, Palette, Film, Landmark, TrendingUp, Cpu, FlaskConical, Atom, Leaf, Microscope, Paintbrush, Newspaper, Megaphone, BookHeart, BrainCog } from 'lucide-react';
+import { Brain, Dumbbell, BookOpen, Code2, Sparkles, Home, ListChecks, User, Settings, Zap, Lightbulb, Puzzle, Target, Timer, Layers, Move, Sunrise, Shield, Activity, Scale, BarChart3, ChevronRight, Briefcase, GraduationCap, Users, Rocket, Palette, Film, Landmark, TrendingUp, Cpu, FlaskConical, Atom, Leaf, Microscope, Paintbrush, Newspaper, Megaphone, BookHeart, BrainCog, Bot, BrainCircuit, ExternalLink } from 'lucide-react';
 
 export interface NavItem {
   title: string;
@@ -14,7 +14,7 @@ export const dashboardSections: NavItem[] = [
   { title: "Physical Fitness", href: "/physical-fitness", icon: Dumbbell, description: "Stay active and energized." },
   { title: "Educational Zone", href: "/educational-zone", icon: BookHeart, description: "Expand your knowledge & find your path." },
   { title: "Programming Practice", href: "/programming-practice", icon: Code2, description: "Sharpen your coding skills with Python." },
-  { title: "AI Prompt Engineering", href: "/ai-prompt-engineering", icon: Sparkles, description: "Master the art of AI communication." },
+  { title: "AI & Modern Tech", href: "/ai-prompt-engineering", icon: Sparkles, description: "Master AI and explore trending technologies." },
 ];
 
 export const bottomNavItems: NavItem[] = [
@@ -353,7 +353,53 @@ export const quizRecommendations: QuizRecommendation[] = [
   { id: 'rec_default', categories: [], title: 'Explorer of All Trades!', text: 'You have a mix of interests! That\'s fantastic. Keep exploring different subjects and activities to discover what truly excites you. Many careers combine skills from various fields.', icon: 'Lightbulb' },
 ];
 
+// AI & Modern Tech Section
+export interface TrendingTech {
+  id: string;
+  name: string;
+  description: string;
+  officialLink: string;
+  icon: string; // Lucide icon name
+}
+
+export const trendingTechnologies: TrendingTech[] = [
+  {
+    id: 'gen_ai_genkit',
+    name: 'Generative AI (with Genkit)',
+    description: 'Explore the future of AI by building applications with large language models using Google\'s Genkit.',
+    officialLink: 'https://firebase.google.com/docs/genkit',
+    icon: 'Bot',
+  },
+  {
+    id: 'nextjs',
+    name: 'Next.js (App Router)',
+    description: 'Build full-stack web applications with the latest features of React and the powerful Next.js App Router.',
+    officialLink: 'https://nextjs.org/docs',
+    icon: 'Sparkles', // Using Sparkles as a generic modern tech icon
+  },
+  {
+    id: 'python_ai_ml',
+    name: 'Python for AI/ML',
+    description: 'The leading programming language for Artificial Intelligence and Machine Learning development.',
+    officialLink: 'https://www.python.org/about/gettingstarted/',
+    icon: 'Code2',
+  },
+  {
+    id: 'machine_learning',
+    name: 'Machine Learning Concepts',
+    description: 'Understand the fundamentals of Machine Learning, how models are trained, and their applications.',
+    officialLink: 'https://developers.google.com/machine-learning/crash-course',
+    icon: 'BrainCircuit',
+  },
+];
+
+
 // Placeholder for educational zone icons
 export { BookOpen as EduBookOpenIcon, Lightbulb as EduLightbulbIcon, Briefcase as EduBriefcaseIcon, GraduationCap as EduGraduationCapIcon, Users as EduUsersIcon, Rocket as EduRocketIcon, Palette as EduPaletteIcon, Film as EduFilmIcon, Landmark as EduLandmarkIcon, TrendingUp as EduTrendingUpIcon, Cpu as EduCpuIcon, FlaskConical as EduFlaskIcon, Atom as EduAtomIcon, Leaf as EduLeafIcon, Microscope as EduMicroscopeIcon, Paintbrush as EduPaintbrushIcon, Newspaper as EduNewspaperIcon, Megaphone as EduMegaphoneIcon };
 export { BookHeart as EduZoneIcon };
 export { BrainCog as EduBrainCogIcon };
+
+// Export new icons for AI/Tech page
+export { Bot as BotIcon, BrainCircuit as BrainCircuitIcon, ExternalLink as ExternalLinkIcon };
+
+    

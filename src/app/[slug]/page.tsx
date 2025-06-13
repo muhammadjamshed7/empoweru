@@ -48,12 +48,11 @@ export default function PlaceholderPage({ params }: PlaceholderPageProps) {
 
 export async function generateStaticParams() {
   const paths = [
-    { slug: "mental-health" },
-    { slug: "physical-fitness" },
-    { slug: "ai-prompt-engineering" },
     { slug: "tasks" },
     { slug: "profile" },
     { slug: "settings" },
   ];
   return paths;
 }
+
+    
