@@ -1,5 +1,6 @@
+
 import type { LucideIcon } from 'lucide-react';
-import { Brain, Dumbbell, BookOpen, Code2, Sparkles, Home, ListChecks, User, Settings, Zap, Lightbulb } from 'lucide-react';
+import { Brain, Dumbbell, BookOpen, Code2, Sparkles, Home, ListChecks, User, Settings, Zap, Lightbulb, Puzzle, Target, Timer, Layers } from 'lucide-react';
 
 export interface NavItem {
   title: string;
@@ -74,3 +75,36 @@ export const relaxationTips: { title: string; description: string }[] = [
     description: "Tense and then relax different muscle groups in your body, starting from your toes and working your way up to your head."
   }
 ];
+
+export const brainTeasers: { riddle: string; answer: string }[] = [
+  { riddle: "I speak without a mouth and hear without ears. I have no body, but I come alive with wind. What am I?", answer: "An echo" },
+  { riddle: "What has keys but opens no locks?", answer: "A piano" },
+  { riddle: "What is full of holes but still holds water?", answer: "A sponge" },
+  { riddle: "What is always in front of you but can’t be seen?", answer: "The future" },
+  { riddle: "What has an eye, but cannot see?", answer: "A needle" },
+  { riddle: "What is so fragile that saying its name breaks it?", answer: "Silence" },
+  { riddle: "What has to be broken before you can use it?", answer: "An egg" },
+  { riddle: "What is lighter than a feather, but even the strongest person can't hold it for five minutes?", answer: "Your breath" },
+  { riddle: "What has one head, one foot, and four legs?", answer: "A bed" },
+  { riddle: "What invention lets you look right through a wall?", answer: "A window" }
+];
+
+export const positiveAffirmations: { front: string; back: string }[] = [
+  { front: "I am…", back: "…capable of amazing things." },
+  { front: "Today I will…", back: "…focus on what I can control." },
+  { front: "I choose to be…", back: "…positive and optimistic." },
+  { front: "My mind is…", back: "…calm and at peace." },
+  { front: "I embrace…", back: "…challenges as opportunities." },
+  { front: "I am grateful for…", back: "…the small joys in my day." },
+  { front: "I forgive…", back: "…myself and others." },
+  { front: "I attract…", back: "…positive energy." },
+  { front: "I believe in…", back: "…my ability to succeed." },
+  { front: "I am becoming…", back: "…a better version of myself." }
+];
+
+// Mind Gym Icons
+export { Puzzle as MindGymPuzzleIcon };
+export { Target as MindGymTargetIcon };
+export { Timer as MindGymTimerIcon };
+export { Layers as MindGymLayersIcon };
+export { Brain as MindGymBrainIcon };

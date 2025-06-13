@@ -1,3 +1,4 @@
+
 import { ArrowLeft, Brain } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -6,6 +7,7 @@ import { BreathingAnimation } from "@/components/mental-health/BreathingAnimatio
 import { MoodTracker } from "@/components/mental-health/MoodTracker";
 import { JournalEntry } from "@/components/mental-health/JournalEntry";
 import { MotivationalQuoteCard } from "@/components/mental-health/MotivationalQuoteCard";
+import { MindGymSection } from "@/components/mental-health/MindGymSection";
 import { mindfulnessTips } from "@/lib/constants";
 
 export default function MentalHealthPage() {
@@ -40,9 +42,15 @@ export default function MentalHealthPage() {
         <JournalEntry />
       </div>
       
-      <MotivationalQuoteCard />
+      <div className="mb-8">
+        <MotivationalQuoteCard />
+      </div>
 
-      <div className="mt-12 text-center">
+      <div className="mb-12">
+        <MindGymSection />
+      </div>
+
+      <div className="text-center">
         <Button asChild variant="outline" size="lg">
           <Link href="/">
             <ArrowLeft className="mr-2 h-5 w-5" /> Back to Dashboard
