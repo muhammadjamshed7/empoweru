@@ -50,7 +50,11 @@ export const motivationalQuotes: string[] = [
   "Strive for progress, not perfection.",
   "The secret of getting ahead is getting started. - Mark Twain",
   "You are stronger than you think.",
-  "Small steps every day lead to big results."
+  "Small steps every day lead to big results.",
+  "The pain you feel today will be the strength you feel tomorrow.",
+  "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+  "Don't watch the clock; do what it does. Keep going.",
+  "The harder you work for something, the greater you’ll feel when you achieve it."
 ];
 
 export const relaxationTips: { title: string; description: string }[] = [
@@ -114,16 +118,17 @@ export interface HomeWorkout {
   id: string;
   title: string;
   description: string;
-  icon: string; // Changed from LucideIcon to string
+  icon: string;
   actionType: 'video' | 'gif' | 'text';
-  actionLink?: string; // For video/gif
+  actionLink?: string;
+  duration?: number; // Optional duration in seconds
 }
 
 export const homeWorkouts: HomeWorkout[] = [
-  { id: 'stretch', title: '5-Min Full Body Stretch', description: 'Gentle stretches for flexibility and relaxation.', icon: "Move", actionType: 'text' },
-  { id: 'warmup', title: 'Morning Energizer', description: 'Quick routine to wake up your body.', icon: "Sunrise", actionType: 'text' },
-  { id: 'cardio', title: '10-Min Cardio Blast', description: 'Jumping jacks, high knees, spot jogging.', icon: "Zap", actionType: 'text' },
-  { id: 'core', title: 'Beginner Core Routine', description: 'Planks, crunches, and leg raises.', icon: "Shield", actionType: 'text' },
+  { id: 'stretch', title: '5-Min Full Body Stretch', description: 'Gentle stretches for flexibility and relaxation.', icon: "Move", actionType: 'text', duration: 300 },
+  { id: 'warmup', title: 'Morning Energizer', description: 'Quick routine to wake up your body.', icon: "Sunrise", actionType: 'text', duration: 180 },
+  { id: 'cardio', title: '10-Min Cardio Blast', description: 'Jumping jacks, high knees, spot jogging.', icon: "Zap", actionType: 'text', duration: 600 },
+  { id: 'core', title: 'Beginner Core Routine', description: 'Planks, crunches, and leg raises.', icon: "Shield", actionType: 'text', duration: 240 },
 ];
 
 export interface GymExercise {
@@ -139,7 +144,7 @@ export interface GymWorkoutPlan {
   title: string;
   description: string;
   exercises: GymExercise[];
-  icon: string; // Changed from LucideIcon to string
+  icon: string;
 }
 
 export const gymWorkoutPlans: GymWorkoutPlan[] = [
@@ -203,7 +208,5 @@ export const fitnessProgressMessages = [
 export { Scale as BmiIcon };
 export { BarChart3 as ProgressChartIcon };
 export { ChevronRight as RightArrowIcon };
-export { Dumbbell as FitnessIcon }; // Note: FitnessIcon is still a LucideIcon export for direct use elsewhere if needed
-// Individual icons for mapping:
+export { Dumbbell as FitnessIcon };
 export { Move as MoveIcon, Sunrise as SunriseIcon, Zap as ZapIcon, Shield as ShieldIcon, Activity as ActivityIcon };
-
