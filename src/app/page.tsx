@@ -17,7 +17,7 @@ export default function DashboardPage() {
       <div className="mb-8">
         <Card className="bg-gradient-to-r from-primary/80 to-accent/80 text-primary-foreground shadow-xl">
           <CardHeader>
-            <CardTitle className="font-headline text-3xl">Your Growth Hub</CardTitle>
+            <CardTitle className="font-headline text-3xl">Your Growth Hub By Jimi</CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-lg">
