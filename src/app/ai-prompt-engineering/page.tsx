@@ -12,8 +12,8 @@ import type { TrendingTech } from "@/lib/constants";
 const techIconMap: { [key: string]: LucideIcon } = {
   Bot,
   BrainCircuit,
-  Sparkles, // Used for Next.js as a generic "modern tech" icon
-  Code2,    // For Python
+  Sparkles, 
+  Code2,    
 };
 
 
@@ -55,7 +55,7 @@ export default function AIPromptEngineeringPage() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
           {trendingTechnologies.map((tech) => {
-            const IconComponent = techIconMap[tech.icon] || Sparkles; // Fallback icon
+            const IconComponent = techIconMap[tech.icon] || Sparkles; 
             return (
               <Card key={tech.id} className="shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full dark:bg-slate-800/50 dark:border-slate-700">
                 <CardHeader className="flex flex-row items-start space-x-4 pb-3">
@@ -70,6 +70,16 @@ export default function AIPromptEngineeringPage() {
                   <CardDescription className="text-base text-muted-foreground font-body mb-4 break-words">
                     {tech.description}
                   </CardDescription>
+                  {tech.roadmapSteps && tech.roadmapSteps.length > 0 && (
+                    <div className="mt-3">
+                      <h4 className="font-semibold text-sm text-foreground mb-1 break-words">Learning Roadmap:</h4>
+                      <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground font-body">
+                        {tech.roadmapSteps.map((step, index) => (
+                          <li key={index} className="break-words">{step}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </CardContent>
                 <div className="p-6 pt-0 mt-auto">
                   <Button asChild variant="outline" className="w-full font-body dark:border-accent dark:text-accent-foreground dark:hover:bg-accent/20">
@@ -94,5 +104,3 @@ export default function AIPromptEngineeringPage() {
     </div>
   );
 }
-
-    

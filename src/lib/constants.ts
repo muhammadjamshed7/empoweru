@@ -1,6 +1,6 @@
 
 import type { LucideIcon } from 'lucide-react';
-import { Brain, Dumbbell, BookOpen, Code2, Sparkles, Home, ListChecks, User, Settings, Zap, Lightbulb, Puzzle, Target, Timer, Layers, Move, Sunrise, Shield, Activity, Scale, BarChart3, ChevronRight, Briefcase, GraduationCap, Users, Rocket, Palette, Film, Landmark, TrendingUp, Cpu, FlaskConical, Atom, Leaf, Microscope, Paintbrush, Newspaper, Megaphone, BookHeart, BrainCog, Bot, BrainCircuit, ExternalLink, Map, CheckSquare, Pill, Stethoscope } from 'lucide-react';
+import { Brain, Dumbbell, BookOpen, Code2, Sparkles, Home, ListChecks, User, Settings, Zap, Lightbulb, Puzzle, Target, Timer, Layers, Move, Sunrise, Shield, Activity, Scale, BarChart3, ChevronRight, Briefcase, GraduationCap, Users, Rocket, Palette, Film, Landmark, TrendingUp, Cpu, FlaskConical, Atom, Leaf, Microscope, Paintbrush, Newspaper, Megaphone, BookHeart, BrainCog, Bot, BrainCircuit, ExternalLink, Map, CheckSquare, Pill, Stethoscope, HeartPulse } from 'lucide-react';
 
 export interface NavItem {
   title: string;
@@ -387,37 +387,87 @@ export interface TrendingTech {
   description: string;
   officialLink: string;
   icon: string; // Lucide icon name
+  roadmapSteps?: string[];
 }
 
 export const trendingTechnologies: TrendingTech[] = [
   {
     id: 'gen_ai_genkit',
     name: 'Generative AI (with Genkit)',
-    description: 'Explore the future of AI by building applications with large language models using Google\'s Genkit.',
+    description: 'Explore the future of AI by building applications with large language models using Google\'s Genkit, a powerful open-source framework for Node.js/TypeScript.',
     officialLink: 'https://firebase.google.com/docs/genkit',
     icon: 'Bot',
+    roadmapSteps: [
+      'Understand core AI and Machine Learning concepts.',
+      'Learn JavaScript/TypeScript and Node.js fundamentals.',
+      'Explore Genkit documentation and examples.',
+      'Practice building small AI-powered flows (e.g., text generation, summarization).',
+      'Experiment with different models and prompt engineering techniques.',
+      'Integrate Genkit flows into web applications (e.g., using Next.js).',
+    ]
   },
   {
     id: 'nextjs',
     name: 'Next.js (App Router)',
-    description: 'Build full-stack web applications with the latest features of React and the powerful Next.js App Router.',
+    description: 'Build full-stack web applications with the latest features of React and the powerful Next.js App Router for server components, efficient data fetching, and improved routing.',
     officialLink: 'https://nextjs.org/docs',
-    icon: 'Sparkles', // Using Sparkles as a generic modern tech icon
+    icon: 'Sparkles', 
+    roadmapSteps: [
+      'Master React fundamentals (components, state, props, hooks).',
+      'Learn core Next.js concepts (pages, layouts, routing with App Router).',
+      'Understand Server Components vs. Client Components.',
+      'Practice data fetching (Server Actions, Route Handlers, client-side).',
+      'Explore styling options (Tailwind CSS, CSS Modules).',
+      'Deploy your Next.js applications (e.g., Vercel, Firebase App Hosting).',
+    ]
   },
   {
     id: 'python_ai_ml',
     name: 'Python for AI/ML',
-    description: 'The leading programming language for Artificial Intelligence and Machine Learning development.',
+    description: 'The leading programming language for Artificial Intelligence and Machine Learning development due to its extensive libraries (NumPy, Pandas, Scikit-learn, TensorFlow, PyTorch) and clear syntax.',
     officialLink: 'https://www.python.org/about/gettingstarted/',
     icon: 'Code2',
+    roadmapSteps: [
+      'Learn Python basics (variables, data types, control flow, functions, OOP).',
+      'Master NumPy for numerical computation and Pandas for data manipulation.',
+      'Study Scikit-learn for traditional machine learning algorithms.',
+      'Dive into TensorFlow or PyTorch for deep learning and neural networks.',
+      'Practice with real-world datasets and projects (e.g., Kaggle competitions).',
+      'Explore specific AI fields like NLP or Computer Vision.',
+    ]
   },
   {
     id: 'machine_learning',
     name: 'Machine Learning Concepts',
-    description: 'Understand the fundamentals of Machine Learning, how models are trained, and their applications.',
+    description: 'Understand the fundamentals of Machine Learning, including supervised learning (classification, regression), unsupervised learning (clustering), model evaluation, and feature engineering.',
     officialLink: 'https://developers.google.com/machine-learning/crash-course',
     icon: 'BrainCircuit',
+     roadmapSteps: [
+      'Grasp basic statistics and probability.',
+      'Learn about different types of ML algorithms and their use cases.',
+      'Understand data preprocessing and feature engineering.',
+      'Study model evaluation metrics (accuracy, precision, recall, F1-score, AUC).',
+      'Learn about overfitting, underfitting, and regularization techniques.',
+      'Practice implementing models using libraries like Scikit-learn.',
+    ]
   },
+  {
+    id: 'agentic_ai',
+    name: 'Agentic AI & Future AI Systems',
+    description: 'Dive into Agentic AI, where systems proactively achieve goals, make decisions, and learn from interactions. This is a key direction for future AI, leading to more autonomous and capable intelligent systems. Understanding this field involves a multi-faceted learning journey.',
+    officialLink: 'https://ai.google/responsibility/principles/', 
+    icon: 'BrainCircuit',
+    roadmapSteps: [
+      'Master Python: The cornerstone for AI development.',
+      'Solidify Core Machine Learning: Understand supervised, unsupervised, and reinforcement learning.',
+      'Explore Deep Learning: Neural networks (CNNs, RNNs), and especially Transformers.',
+      'Learn Natural Language Processing (NLP): Essential for AI communication and understanding.',
+      'Deep Dive into Reinforcement Learning (RL): Crucial for decision-making and agent behavior.',
+      'Understand LLMs & Generative AI: Tools like Genkit are vital for building modern AI apps.',
+      'Study AI Ethics and Safety: Critical for responsible development of advanced AI.',
+      'Explore Multi-Agent Systems & Robotics (Optional): For advanced interaction and physical embodiment.',
+    ],
+  }
 ];
 
 // Python Quiz Section
@@ -632,4 +682,6 @@ export { Bot as BotIcon, BrainCircuit as BrainCircuitIcon, ExternalLink as Exter
 export { Map as MapIcon, CheckSquare as CheckSquareIcon };
 // Export icons for Pharmacy
 export { Pill as PillIcon, Stethoscope as StethoscopeIcon };
+// Export icons for Healthcare general
+export { HeartPulse as HeartPulseIcon };
     
