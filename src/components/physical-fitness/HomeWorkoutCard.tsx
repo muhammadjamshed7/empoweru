@@ -1,18 +1,29 @@
 
 "use client";
 
-import type { HomeWorkout } from "@/lib/constants";
+import type { LucideIcon } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Move, Sunrise, Zap, Shield } from "lucide-react"; // Import specific icons
 import { useToast } from "@/hooks/use-toast";
+import type { HomeWorkout } from "@/lib/constants";
 
 interface HomeWorkoutCardProps {
   workout: HomeWorkout;
 }
 
+const iconMap: { [key: string]: LucideIcon } = {
+  Move: Move,
+  Sunrise: Sunrise,
+  Zap: Zap,
+  Shield: Shield,
+  // Add other icons here if new home workout types are added
+};
+
+
 export function HomeWorkoutCard({ workout }: HomeWorkoutCardProps) {
   const { toast } = useToast();
+  const WorkoutIcon = iconMap[workout.icon] || Move; // Default to Move if icon not found
 
   const handleStartWorkout = () => {
     // Placeholder for starting workout (e.g., open modal, video, or new page)
@@ -31,7 +42,7 @@ export function HomeWorkoutCard({ workout }: HomeWorkoutCardProps) {
       <CardHeader className="pb-3">
         <div className="flex items-center space-x-3 mb-2">
           <div className="p-2 bg-green-500/10 rounded-md">
-            <workout.icon className="h-7 w-7 text-green-400" />
+            <WorkoutIcon className="h-7 w-7 text-green-400" />
           </div>
           <CardTitle className="font-headline text-lg text-foreground dark:text-green-300">{workout.title}</CardTitle>
         </div>
@@ -45,3 +56,4 @@ export function HomeWorkoutCard({ workout }: HomeWorkoutCardProps) {
     </Card>
   );
 }
+

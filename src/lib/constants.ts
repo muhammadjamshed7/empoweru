@@ -114,16 +114,16 @@ export interface HomeWorkout {
   id: string;
   title: string;
   description: string;
-  icon: LucideIcon;
+  icon: string; // Changed from LucideIcon to string
   actionType: 'video' | 'gif' | 'text';
   actionLink?: string; // For video/gif
 }
 
 export const homeWorkouts: HomeWorkout[] = [
-  { id: 'stretch', title: '5-Min Full Body Stretch', description: 'Gentle stretches for flexibility and relaxation.', icon: Move, actionType: 'text' },
-  { id: 'warmup', title: 'Morning Energizer', description: 'Quick routine to wake up your body.', icon: Sunrise, actionType: 'text' },
-  { id: 'cardio', title: '10-Min Cardio Blast', description: 'Jumping jacks, high knees, spot jogging.', icon: Zap, actionType: 'text' },
-  { id: 'core', title: 'Beginner Core Routine', description: 'Planks, crunches, and leg raises.', icon: Shield, actionType: 'text' },
+  { id: 'stretch', title: '5-Min Full Body Stretch', description: 'Gentle stretches for flexibility and relaxation.', icon: "Move", actionType: 'text' },
+  { id: 'warmup', title: 'Morning Energizer', description: 'Quick routine to wake up your body.', icon: "Sunrise", actionType: 'text' },
+  { id: 'cardio', title: '10-Min Cardio Blast', description: 'Jumping jacks, high knees, spot jogging.', icon: "Zap", actionType: 'text' },
+  { id: 'core', title: 'Beginner Core Routine', description: 'Planks, crunches, and leg raises.', icon: "Shield", actionType: 'text' },
 ];
 
 export interface GymExercise {
@@ -139,7 +139,7 @@ export interface GymWorkoutPlan {
   title: string;
   description: string;
   exercises: GymExercise[];
-  icon: LucideIcon;
+  icon: string; // Changed from LucideIcon to string
 }
 
 export const gymWorkoutPlans: GymWorkoutPlan[] = [
@@ -148,7 +148,7 @@ export const gymWorkoutPlans: GymWorkoutPlan[] = [
     goal: 'Fat Loss',
     title: 'Lean Machine Circuit',
     description: 'High-intensity circuit to maximize calorie burn.',
-    icon: Activity,
+    icon: "Activity",
     exercises: [
       { name: 'Treadmill Run', sets: '1', reps: '20 mins', rest: 'N/A' },
       { name: 'Bodyweight Squats', sets: '3', reps: '15-20', rest: '60s' },
@@ -161,7 +161,7 @@ export const gymWorkoutPlans: GymWorkoutPlan[] = [
     goal: 'Strength',
     title: 'Foundational Strength',
     description: 'Focus on compound lifts to build overall strength.',
-    icon: Dumbbell,
+    icon: "Dumbbell",
     exercises: [
       { name: 'Barbell Squats', sets: '5', reps: '5', rest: '2-3 mins' },
       { name: 'Bench Press', sets: '5', reps: '5', rest: '2-3 mins' },
@@ -174,7 +174,7 @@ export const gymWorkoutPlans: GymWorkoutPlan[] = [
     goal: 'Muscle Gain',
     title: 'Hypertrophy Builder',
     description: 'Volume-focused training for muscle growth.',
-    icon: Dumbbell, // Could use a different icon if available
+    icon: "Dumbbell",
     exercises: [
       { name: 'Dumbbell Bench Press', sets: '4', reps: '8-12', rest: '90s' },
       { name: 'Lat Pulldowns', sets: '4', reps: '10-12', rest: '90s' },
@@ -203,4 +203,7 @@ export const fitnessProgressMessages = [
 export { Scale as BmiIcon };
 export { BarChart3 as ProgressChartIcon };
 export { ChevronRight as RightArrowIcon };
-export { Dumbbell as FitnessIcon };
+export { Dumbbell as FitnessIcon }; // Note: FitnessIcon is still a LucideIcon export for direct use elsewhere if needed
+// Individual icons for mapping:
+export { Move as MoveIcon, Sunrise as SunriseIcon, Zap as ZapIcon, Shield as ShieldIcon, Activity as ActivityIcon };
+
