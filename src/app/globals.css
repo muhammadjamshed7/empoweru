@@ -8,77 +8,77 @@ body {
 
 @layer base {
   :root {
-    --background: 210 20% 95%; /* #F0F8FF - Light Alice Blue */
-    --foreground: 210 10% 20%; /* Dark Slate Gray */
+    --background: 245 60% 97%; /* Very Pale Lavender White */
+    --foreground: 245 25% 30%; /* Dark Muted Indigo/Purple */
 
     --card: 0 0% 100%; /* White */
-    --card-foreground: 210 10% 20%;
+    --card-foreground: 245 25% 30%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 10% 20%;
+    --popover-foreground: 245 25% 30%;
 
-    --primary: 210 75% 50%; /* #3399FF - Dodger Blue */
-    --primary-foreground: 0 0% 100%; /* White */
+    --primary: 250 70% 75%; /* Soft Lavender */
+    --primary-foreground: 250 80% 15%; /* Dark Purple for text on primary */
 
-    --secondary: 210 20% 90%; /* Light Steel Blue */
-    --secondary-foreground: 210 10% 25%;
+    --secondary: 250 40% 90%; /* Lighter Lavender */
+    --secondary-foreground: 250 30% 40%; /* Darker Muted Purple for text on secondary */
 
-    --muted: 210 20% 85%; /* Light Grayish Blue */
-    --muted-foreground: 210 10% 45%; /* Slate Gray */
+    --muted: 245 30% 92%; /* Muted Lavender Gray */
+    --muted-foreground: 245 20% 50%; /* Slate Grayish Lavender */
 
-    --accent: 180 75% 50%; /* #33FFCC - Turquoise */
-    --accent-foreground: 180 75% 10%; /* Dark Teal */
+    --accent: 160 50% 70%; /* Pastel Mint/Aqua */
+    --accent-foreground: 160 60% 20%; /* Dark Mint/Aqua */
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 210 20% 80%; /* Gainsboro */
-    --input: 210 20% 88%; /* Light Gray */
-    --ring: 210 75% 50%; /* Primary color for rings */
+    --border: 250 30% 85%; /* Light Lavender Border */
+    --input: 250 40% 94%; /* Pale Lavender Input Background */
+    --ring: 250 70% 75%; /* Primary color for rings (Soft Lavender) */
 
     --radius: 0.5rem;
 
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
+    --chart-1: 250 70% 65%;
+    --chart-2: 160 60% 60%;
+    --chart-3: 270 60% 70%;
+    --chart-4: 43 74% 66%; /* Keeping some original chart colors */
     --chart-5: 27 87% 67%;
   }
 
   .dark {
-    --background: 210 20% 10%; /* Dark Blue */
-    --foreground: 210 20% 90%; /* Light Gray */
+    --background: 245 20% 10%; /* Dark Indigo/Purple */
+    --foreground: 245 30% 90%; /* Light Lavender Gray */
 
-    --card: 210 20% 15%; /* Slightly Lighter Dark Blue */
-    --card-foreground: 210 20% 90%;
+    --card: 245 20% 15%; /* Slightly Lighter Dark Indigo */
+    --card-foreground: 245 30% 90%;
 
-    --popover: 210 20% 15%;
-    --popover-foreground: 210 20% 90%;
+    --popover: 245 20% 15%;
+    --popover-foreground: 245 30% 90%;
 
-    --primary: 210 75% 55%; /* Slightly Lighter Dodger Blue */
-    --primary-foreground: 0 0% 100%; /* White */
+    --primary: 250 70% 65%; /* Medium Lavender */
+    --primary-foreground: 250 80% 95%; /* Very Light Lavender/White for text on dark primary */
     
-    --secondary: 210 20% 20%;
-    --secondary-foreground: 210 20% 85%;
+    --secondary: 250 20% 25%; /* Darker Muted Lavender */
+    --secondary-foreground: 250 30% 80%; /* Lighter Lavender Gray for text on dark secondary */
 
-    --muted: 210 20% 25%;
-    --muted-foreground: 210 20% 65%;
+    --muted: 245 20% 20%; /* Dark Muted Lavender */
+    --muted-foreground: 245 20% 60%; /* Medium Lavender Gray */
 
-    --accent: 180 75% 55%; /* Slightly Lighter Turquoise */
-    --accent-foreground: 180 75% 10%; /* Dark Teal */
+    --accent: 160 50% 60%; /* Muted Mint/Aqua */
+    --accent-foreground: 160 60% 90%; /* Light Mint/Aqua */
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 210 20% 30%;
-    --input: 210 20% 25%;
-    --ring: 210 75% 55%; /* Primary color for rings in dark mode */
+    --border: 250 20% 30%; /* Dark Lavender Border */
+    --input: 250 20% 22%; /* Darker Lavender Input Background */
+    --ring: 250 70% 65%; /* Medium Lavender for rings */
 
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+    --chart-1: 250 70% 55%;
+    --chart-2: 160 60% 50%;
+    --chart-3: 270 60% 60%;
+    --chart-4: 43 74% 56%;
+    --chart-5: 27 87% 57%;
   }
 }
 
@@ -90,4 +90,25 @@ body {
     @apply bg-background text-foreground;
     @apply transition-colors duration-300;
   }
+}
+
+/* Breathing Animation Styles */
+.breathing-circle-animation {
+  animation: breathe 12s infinite ease-in-out;
+}
+
+@keyframes breathe {
+  0%, 100% { /* Exhale complete / Start */
+    transform: scale(0.8);
+    opacity: 0.7;
+  }
+  33.33% { /* Inhale complete (4s / 12s) */
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  66.66% { /* Hold complete (8s / 12s) */
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  /* Exhale happens from 66.66% to 100% */
 }
