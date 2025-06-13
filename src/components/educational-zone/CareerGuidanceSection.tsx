@@ -6,7 +6,7 @@ import { careerInterests, CareerInterest, CareerPath } from "@/lib/constants";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Briefcase, DollarSign, BookOpen as StudyIcon, Cpu, FlaskConical, Palette as ArtsIcon, TrendingUp as BusinessIcon, Code2, BarChart3, Microscope, Leaf, Paintbrush, Newspaper, Megaphone, TrendingUp } from "lucide-react";
+import { Briefcase, DollarSign, BookOpen as StudyIcon, Cpu, FlaskConical, Palette as ArtsIcon, TrendingUp as BusinessIcon, Code2, BarChart3, Microscope, Leaf, Paintbrush, Newspaper, Megaphone, TrendingUp, Pill, Stethoscope } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 const interestIconMap: { [key: string]: LucideIcon } = {
@@ -14,10 +14,11 @@ const interestIconMap: { [key: string]: LucideIcon } = {
   FlaskConical,
   Palette: ArtsIcon,
   Briefcase: BusinessIcon,
+  Pill,
 };
 
 const careerPathIconMap: { [key: string]: LucideIcon } = {
-  Code2, BarChart3, Microscope, Leaf, Paintbrush, Newspaper, Megaphone, TrendingUp
+  Code2, BarChart3, Microscope, Leaf, Paintbrush, Newspaper, Megaphone, TrendingUp, Stethoscope
 };
 
 
@@ -73,11 +74,11 @@ export function CareerGuidanceSection() {
           </SelectTrigger>
           <SelectContent className="dark:bg-slate-800 dark:border-slate-700">
             {careerInterests.map(interest => {
-              const ItemIcon = interestIconMap[interest.icon] || Briefcase;
+              const IconComponent = interestIconMap[interest.icon] || Briefcase;
               return (
                 <SelectItem key={interest.id} value={interest.id} className="dark:text-slate-300 dark:focus:bg-slate-700">
                   <div className="flex items-center">
-                    <ItemIcon className="h-4 w-4 mr-2" />
+                    <IconComponent className="h-4 w-4 mr-2" />
                     {interest.name}
                   </div>
                 </SelectItem>

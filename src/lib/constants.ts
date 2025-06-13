@@ -1,6 +1,6 @@
 
 import type { LucideIcon } from 'lucide-react';
-import { Brain, Dumbbell, BookOpen, Code2, Sparkles, Home, ListChecks, User, Settings, Zap, Lightbulb, Puzzle, Target, Timer, Layers, Move, Sunrise, Shield, Activity, Scale, BarChart3, ChevronRight, Briefcase, GraduationCap, Users, Rocket, Palette, Film, Landmark, TrendingUp, Cpu, FlaskConical, Atom, Leaf, Microscope, Paintbrush, Newspaper, Megaphone, BookHeart, BrainCog, Bot, BrainCircuit, ExternalLink, Map, CheckSquare } from 'lucide-react';
+import { Brain, Dumbbell, BookOpen, Code2, Sparkles, Home, ListChecks, User, Settings, Zap, Lightbulb, Puzzle, Target, Timer, Layers, Move, Sunrise, Shield, Activity, Scale, BarChart3, ChevronRight, Briefcase, GraduationCap, Users, Rocket, Palette, Film, Landmark, TrendingUp, Cpu, FlaskConical, Atom, Leaf, Microscope, Paintbrush, Newspaper, Megaphone, BookHeart, BrainCog, Bot, BrainCircuit, ExternalLink, Map, CheckSquare, Pill, Stethoscope } from 'lucide-react';
 
 export interface NavItem {
   title: string;
@@ -245,7 +245,7 @@ export interface CareerPath {
 
 export interface CareerInterest {
   id: string;
-  name: 'Science' | 'Arts & Humanities' | 'Business & Finance' | 'Technology';
+  name: string; // Changed from union type to string to easily accommodate 'Pharmacy'
   description: string;
   icon: string;
   careerPaths: CareerPath[];
@@ -292,12 +292,35 @@ export const careerInterests: CareerInterest[] = [
       { id: 'biz2', title: 'Financial Analyst', description: 'Provides guidance on investment decisions.', requiredSkills: ['Financial Modeling', 'Data Analysis', 'Economics', 'Attention to Detail'], sampleJobRoles: ['Investment Banker', 'Accountant', 'Portfolio Manager'], salaryExpectations: '$70k - $150k+', studyRecommendations: ['Finance', 'Economics', 'Accounting', 'Business Administration'], icon: 'TrendingUp' },
     ],
   },
+  {
+    id: 'pharmacy',
+    name: 'Pharmacy',
+    description: 'Focus on medication expertise, patient care, and health sciences.',
+    icon: 'Pill',
+    careerPaths: [
+      { 
+        id: 'pharma1', 
+        title: 'Pharmacist', 
+        description: 'Dispenses medications, counsels patients on drug use, and ensures safe medication practices. Works in community pharmacies, hospitals, or clinical settings.', 
+        requiredSkills: ['Pharmaceutical Knowledge', 'Attention to Detail', 'Communication Skills', 'Patient Counseling', 'Understanding of Regulations'], 
+        sampleJobRoles: ['Community Pharmacist', 'Hospital Pharmacist', 'Clinical Pharmacist', 'Pharmaceutical Researcher'], 
+        salaryExpectations: '$100k - $140k+', 
+        studyRecommendations: [
+          'Doctor of Pharmacy (Pharm.D.) degree',
+          'Pass state licensure exams (e.g., NAPLEX, MPJE in the US)',
+          'Pre-pharmacy undergraduate coursework (chemistry, biology, physics, math)',
+          'Pharmacy College Admission Test (PCAT) may be required'
+        ], 
+        icon: 'Stethoscope' 
+      },
+    ],
+  },
 ];
 
 export interface QuizQuestion {
   id: string;
   text: string;
-  options: { text: string; value: string; category: 'tech' | 'science' | 'arts' | 'business' | 'analytical' | 'creative' | 'people' | 'detail' }[];
+  options: { text: string; value: string; category: 'tech' | 'science' | 'arts' | 'business' | 'analytical' | 'creative' | 'people' | 'detail' | 'healthcare' }[];
 }
 
 export const educationPathQuizQuestions: QuizQuestion[] = [
@@ -309,6 +332,7 @@ export const educationPathQuizQuestions: QuizQuestion[] = [
       { text: 'Conducting a fun science experiment?', value: 'b', category: 'science' },
       { text: 'Writing a story or drawing a picture?', value: 'c', category: 'arts' },
       { text: 'Organizing a school event or fundraiser?', value: 'd', category: 'business' },
+      { text: 'Learning about how medicines help people?', value: 'e', category: 'healthcare' },
     ],
   },
   {
@@ -329,6 +353,7 @@ export const educationPathQuizQuestions: QuizQuestion[] = [
       { text: 'Biology or Chemistry', value: 'b', category: 'science' },
       { text: 'English or Art Class', value: 'c', category: 'arts' },
       { text: 'Economics or Social Studies', value: 'd', category: 'business' },
+      { text: 'Health or Anatomy Class', value: 'e', category: 'healthcare' },
     ],
   },
 ];
@@ -346,10 +371,12 @@ export const quizRecommendations: QuizRecommendation[] = [
   { id: 'rec_science_detail', categories: ['science', 'detail'], title: 'Scientific Explorer / Researcher', text: 'Your interest in science and attention to detail could lead you to a career in research, medicine, or environmental science. These paths involve investigation, experimentation, and making new discoveries.', icon: 'FlaskConical' },
   { id: 'rec_arts_creative', categories: ['arts', 'creative'], title: 'Creative Communicator / Artist', text: 'Your creative flair and love for arts suggest paths like Graphic Design, Writing, Filmmaking, or Performing Arts. These fields are all about expression, storytelling, and bringing ideas to life.', icon: 'Palette' },
   { id: 'rec_business_people', categories: ['business', 'people'], title: 'Business Leader / People Person', text: 'With your knack for organization and working with people, careers in Business Management, Marketing, Human Resources, or Entrepreneurship could be a great fit. These roles often involve strategy, communication, and leading teams.', icon: 'Briefcase' },
+  { id: 'rec_healthcare_science', categories: ['healthcare', 'science', 'detail'], title: 'Healthcare Professional / Pharmacist', text: 'You show interest in healthcare and science, with an eye for detail. Fields like Pharmacy, Medicine, Nursing, or other allied health professions could be very rewarding, focusing on patient care and well-being.', icon: 'Pill'},
   { id: 'rec_general_tech', categories: ['tech'], title: 'Tech Explorer', text: 'You show a strong interest in technology! Fields like Web Development, Game Design, or IT Support could be exciting for you. Keep exploring coding and new tech trends!', icon: 'Rocket' },
   { id: 'rec_general_science', categories: ['science'], title: 'Curious Scientist', text: 'Your curiosity for science is a great asset! Consider looking into Biology, Chemistry, Physics, or even Astronomy. The world of discovery awaits!', icon: 'Atom' },
   { id: 'rec_general_arts', categories: ['arts'], title: 'Artistic Soul', text: 'Your passion for arts and humanities shines through! Explore areas like Creative Writing, Visual Arts, Music, or History. Express yourself and share your unique perspective.', icon: 'Paintbrush' },
   { id: 'rec_general_business', categories: ['business'], title: 'Future Entrepreneur', text: 'You have an inclination towards business and organization! Fields like Project Management, Marketing, or starting your own venture could be very rewarding.', icon: 'TrendingUp' },
+  { id: 'rec_general_healthcare', categories: ['healthcare'], title: 'Caring Healer', text: 'Your interest in health points towards many fulfilling paths! Consider exploring nursing, physical therapy, medical assisting, or public health. Helping others is key!', icon: 'HeartPulse'},
   { id: 'rec_default', categories: [], title: 'Explorer of All Trades!', text: 'You have a mix of interests! That\'s fantastic. Keep exploring different subjects and activities to discover what truly excites you. Many careers combine skills from various fields.', icon: 'Lightbulb' },
 ];
 
@@ -603,6 +630,6 @@ export { BrainCog as EduBrainCogIcon };
 // Export new icons for AI/Tech page
 export { Bot as BotIcon, BrainCircuit as BrainCircuitIcon, ExternalLink as ExternalLinkIcon };
 export { Map as MapIcon, CheckSquare as CheckSquareIcon };
-    
-
+// Export icons for Pharmacy
+export { Pill as PillIcon, Stethoscope as StethoscopeIcon };
     
