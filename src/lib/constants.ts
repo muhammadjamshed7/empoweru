@@ -1,6 +1,6 @@
 
 import type { LucideIcon } from 'lucide-react';
-import { Brain, Dumbbell, BookOpen, Code2, Sparkles, Home, ListChecks, User, Settings, Zap, Lightbulb, Puzzle, Target, Timer, Layers, Move, Sunrise, Shield, Activity, Scale, BarChart3, ChevronRight } from 'lucide-react';
+import { Brain, Dumbbell, BookOpen, Code2, Sparkles, Home, ListChecks, User, Settings, Zap, Lightbulb, Puzzle, Target, Timer, Layers, Move, Sunrise, Shield, Activity, Scale, BarChart3, ChevronRight, Briefcase, GraduationCap, Users, Rocket, Palette, Film, Landmark, TrendingUp, Cpu, LightbulbFilament, BookHeart, BrainCog } from 'lucide-react';
 
 export interface NavItem {
   title: string;
@@ -12,7 +12,7 @@ export interface NavItem {
 export const dashboardSections: NavItem[] = [
   { title: "Mental Health", href: "/mental-health", icon: Brain, description: "Nurture your mind and well-being." },
   { title: "Physical Fitness", href: "/physical-fitness", icon: Dumbbell, description: "Stay active and energized." },
-  { title: "Educational Zone", href: "/educational-zone", icon: BookOpen, description: "Expand your knowledge." },
+  { title: "Educational Zone", href: "/educational-zone", icon: BookHeart, description: "Expand your knowledge & find your path." },
   { title: "Programming Practice", href: "/programming-practice", icon: Code2, description: "Sharpen your coding skills." },
   { title: "AI Prompt Engineering", href: "/ai-prompt-engineering", icon: Sparkles, description: "Master the art of AI communication." },
 ];
@@ -118,7 +118,7 @@ export interface HomeWorkout {
   id: string;
   title: string;
   description: string;
-  icon: string;
+  icon: string; // Name of LucideIcon
   actionType: 'video' | 'gif' | 'text';
   actionLink?: string;
   duration?: number; // Optional duration in seconds
@@ -144,7 +144,7 @@ export interface GymWorkoutPlan {
   title: string;
   description: string;
   exercises: GymExercise[];
-  icon: string;
+  icon: string; // Name of LucideIcon
 }
 
 export const gymWorkoutPlans: GymWorkoutPlan[] = [
@@ -210,3 +210,151 @@ export { BarChart3 as ProgressChartIcon };
 export { ChevronRight as RightArrowIcon };
 export { Dumbbell as FitnessIcon };
 export { Move as MoveIcon, Sunrise as SunriseIcon, Zap as ZapIcon, Shield as ShieldIcon, Activity as ActivityIcon };
+
+// Educational Zone Constants
+export interface StudyTip {
+  id: string;
+  ageGroup: 'Primary' | 'Middle School' | 'High School';
+  tip: string;
+  icon: string; // Name of LucideIcon
+}
+
+export const studyTips: StudyTip[] = [
+  { id: 'p1', ageGroup: 'Primary', tip: 'Use colorful drawings to remember new words!', icon: 'Palette' },
+  { id: 'p2', ageGroup: 'Primary', tip: 'Take short breaks to play every 20 minutes.', icon: 'Timer' },
+  { id: 'p3', ageGroup: 'Primary', tip: 'Ask a grown-up to read with you.', icon: 'Users' },
+  { id: 'm1', ageGroup: 'Middle School', tip: 'Create flashcards for key terms and dates.', icon: 'Layers' },
+  { id: 'm2', ageGroup: 'Middle School', tip: 'Explain what you learned to a friend or family member.', icon: 'Lightbulb' },
+  { id: 'm3', ageGroup: 'Middle School', tip: 'Find a quiet place to study without distractions.', icon: 'Home' },
+  { id: 'h1', ageGroup: 'High School', tip: 'Use the Pomodoro Technique: 25-min study, 5-min break.', icon: 'Timer' },
+  { id: 'h2', ageGroup: 'High School', tip: 'Form a study group for difficult subjects.', icon: 'Users' },
+  { id: 'h3', ageGroup: 'High School', tip: 'Practice past exam papers to understand the format.', icon: 'BookOpen' },
+  { id: 'h4', ageGroup: 'High School', tip: 'Revise with mind maps and colourful notes for better recall.', icon: 'BrainCog'},
+];
+
+export interface CareerPath {
+  id: string;
+  title: string;
+  description: string;
+  requiredSkills: string[];
+  sampleJobRoles: string[];
+  salaryExpectations: string;
+  studyRecommendations: string[];
+  icon: string;
+}
+
+export interface CareerInterest {
+  id: string;
+  name: 'Science' | 'Arts & Humanities' | 'Business & Finance' | 'Technology';
+  description: string;
+  icon: string;
+  careerPaths: CareerPath[];
+}
+
+export const careerInterests: CareerInterest[] = [
+  {
+    id: 'tech',
+    name: 'Technology',
+    description: 'Explore careers in innovation, software, and digital solutions.',
+    icon: 'Cpu',
+    careerPaths: [
+      { id: 'tech1', title: 'Software Engineer', description: 'Designs, develops, and maintains software applications.', requiredSkills: ['Programming (Python, Java, C++)', 'Problem-Solving', 'Data Structures'], sampleJobRoles: ['Web Developer', 'Mobile App Developer', 'Backend Engineer'], salaryExpectations: '$70k - $150k+', studyRecommendations: ['Computer Science', 'Software Engineering', 'Bootcamps'], icon: 'Code2' },
+      { id: 'tech2', title: 'Data Scientist', description: 'Analyzes complex data to extract insights and inform decisions.', requiredSkills: ['Statistics', 'Machine Learning', 'Python/R', 'Data Visualization'], sampleJobRoles: ['Data Analyst', 'ML Engineer', 'Business Intelligence Analyst'], salaryExpectations: '$80k - $170k+', studyRecommendations: ['Data Science', 'Statistics', 'Mathematics', 'Computer Science'], icon: 'BarChart3' },
+    ],
+  },
+  {
+    id: 'science',
+    name: 'Science',
+    description: 'Discover the world through research, experimentation, and healthcare.',
+    icon: 'FlaskConical',
+    careerPaths: [
+      { id: 'sci1', title: 'Biomedical Researcher', description: 'Conducts studies to improve human health.', requiredSkills: ['Biology', 'Chemistry', 'Lab Techniques', 'Critical Thinking'], sampleJobRoles: ['Lab Technician', 'Research Scientist', 'Pharmacologist'], salaryExpectations: '$60k - $120k+', studyRecommendations: ['Biology', 'Biochemistry', 'Medical Science'], icon: 'Microscope' },
+      { id: 'sci2', title: 'Environmental Scientist', description: 'Works to protect the environment and solve ecological problems.', requiredSkills: ['Ecology', 'Data Analysis', 'Field Work', 'Policy Knowledge'], sampleJobRoles: ['Conservationist', 'Sustainability Consultant', 'Pollution Analyst'], salaryExpectations: '$55k - $100k+', studyRecommendations: ['Environmental Science', 'Geology', 'Ecology'], icon: 'Leaf' },
+    ],
+  },
+  {
+    id: 'arts',
+    name: 'Arts & Humanities',
+    description: 'Engage in creative expression, communication, and cultural understanding.',
+    icon: 'Palette',
+    careerPaths: [
+      { id: 'art1', title: 'Graphic Designer', description: 'Creates visual concepts for communication.', requiredSkills: ['Adobe Creative Suite', 'Typography', 'Visual Design', 'Creativity'], sampleJobRoles: ['UI/UX Designer', 'Illustrator', 'Brand Designer'], salaryExpectations: '$50k - $90k+', studyRecommendations: ['Graphic Design', 'Fine Arts', 'Digital Media'], icon: 'Paintbrush' },
+      { id: 'art2', title: 'Journalist / Writer', description: 'Researches and writes stories for various media.', requiredSkills: ['Writing', 'Research', 'Interviewing', 'Communication'], sampleJobRoles: ['Content Creator', 'Editor', 'Reporter'], salaryExpectations: '$45k - $85k+', studyRecommendations: ['Journalism', 'English Literature', 'Communications'], icon: 'Newspaper' },
+    ],
+  },
+  {
+    id: 'business',
+    name: 'Business & Finance',
+    description: 'Lead, manage, and strategize in the world of commerce and economics.',
+    icon: 'Briefcase',
+    careerPaths: [
+      { id: 'biz1', title: 'Marketing Manager', description: 'Develops and implements marketing strategies.', requiredSkills: ['Market Analysis', 'Digital Marketing', 'Communication', 'Creativity'], sampleJobRoles: ['Social Media Manager', 'Brand Manager', 'SEO Specialist'], salaryExpectations: '$65k - $130k+', studyRecommendations: ['Marketing', 'Business Administration', 'Communications'], icon: 'Megaphone' },
+      { id: 'biz2', title: 'Financial Analyst', description: 'Provides guidance on investment decisions.', requiredSkills: ['Financial Modeling', 'Data Analysis', 'Economics', 'Attention to Detail'], sampleJobRoles: ['Investment Banker', 'Accountant', 'Portfolio Manager'], salaryExpectations: '$70k - $150k+', studyRecommendations: ['Finance', 'Economics', 'Accounting', 'Business Administration'], icon: 'TrendingUp' },
+    ],
+  },
+];
+
+export interface QuizQuestion {
+  id: string;
+  text: string;
+  options: { text: string; value: string; category: 'tech' | 'science' | 'arts' | 'business' | 'analytical' | 'creative' | 'people' | 'detail' }[];
+}
+
+export const educationPathQuizQuestions: QuizQuestion[] = [
+  {
+    id: 'q1',
+    text: 'Would you rather spend your afternoon...',
+    options: [
+      { text: 'Building a cool app or website?', value: 'a', category: 'tech' },
+      { text: 'Conducting a fun science experiment?', value: 'b', category: 'science' },
+      { text: 'Writing a story or drawing a picture?', value: 'c', category: 'arts' },
+      { text: 'Organizing a school event or fundraiser?', value: 'd', category: 'business' },
+    ],
+  },
+  {
+    id: 'q2',
+    text: 'When facing a challenge, you tend to...',
+    options: [
+      { text: 'Analyze it logically and find a step-by-step solution.', value: 'a', category: 'analytical' },
+      { text: 'Think outside the box and come up with unique ideas.', value: 'b', category: 'creative' },
+      { text: 'Ask others for help and work together.', value: 'c', category: 'people' },
+      { text: 'Focus on the small details to get it perfect.', value: 'd', category: 'detail' },
+    ],
+  },
+  {
+    id: 'q3',
+    text: 'Which school subject excites you most?',
+    options: [
+      { text: 'Math or Computer Class', value: 'a', category: 'tech' },
+      { text: 'Biology or Chemistry', value: 'b', category: 'science' },
+      { text: 'English or Art Class', value: 'c', category: 'arts' },
+      { text: 'Economics or Social Studies', value: 'd', category: 'business' },
+    ],
+  },
+];
+
+export interface QuizRecommendation {
+  id: string;
+  categories: string[]; // Primary categories that lead to this recommendation
+  title: string;
+  text: string;
+  icon: string; // Lucide icon name
+}
+
+export const quizRecommendations: QuizRecommendation[] = [
+  { id: 'rec_tech_analytical', categories: ['tech', 'analytical'], title: 'Tech Innovator / Problem Solver', text: 'You seem to enjoy technology and logical problem-solving! Consider exploring fields like Software Engineering, Data Science, or Cybersecurity. These areas involve building, analyzing, and creating solutions with code and data.', icon: 'Cpu' },
+  { id: 'rec_science_detail', categories: ['science', 'detail'], title: 'Scientific Explorer / Researcher', text: 'Your interest in science and attention to detail could lead you to a career in research, medicine, or environmental science. These paths involve investigation, experimentation, and making new discoveries.', icon: 'FlaskConical' },
+  { id: 'rec_arts_creative', categories: ['arts', 'creative'], title: 'Creative Communicator / Artist', text: 'Your creative flair and love for arts suggest paths like Graphic Design, Writing, Filmmaking, or Performing Arts. These fields are all about expression, storytelling, and bringing ideas to life.', icon: 'Palette' },
+  { id: 'rec_business_people', categories: ['business', 'people'], title: 'Business Leader / People Person', text: 'With your knack for organization and working with people, careers in Business Management, Marketing, Human Resources, or Entrepreneurship could be a great fit. These roles often involve strategy, communication, and leading teams.', icon: 'Briefcase' },
+  { id: 'rec_general_tech', categories: ['tech'], title: 'Tech Explorer', text: 'You show a strong interest in technology! Fields like Web Development, Game Design, or IT Support could be exciting for you. Keep exploring coding and new tech trends!', icon: 'Rocket' },
+  { id: 'rec_general_science', categories: ['science'], title: 'Curious Scientist', text: 'Your curiosity for science is a great asset! Consider looking into Biology, Chemistry, Physics, or even Astronomy. The world of discovery awaits!', icon: 'Atom' },
+  { id: 'rec_general_arts', categories: ['arts'], title: 'Artistic Soul', text: 'Your passion for arts and humanities shines through! Explore areas like Creative Writing, Visual Arts, Music, or History. Express yourself and share your unique perspective.', icon: 'Paintbrush' },
+  { id: 'rec_general_business', categories: ['business'], title: 'Future Entrepreneur', text: 'You have an inclination towards business and organization! Fields like Project Management, Marketing, or starting your own venture could be very rewarding.', icon: 'TrendingUp' },
+  { id: 'rec_default', categories: [], title: 'Explorer of All Trades!', text: 'You have a mix of interests! That\'s fantastic. Keep exploring different subjects and activities to discover what truly excites you. Many careers combine skills from various fields.', icon: 'LightbulbFilament' },
+];
+
+// Placeholder for educational zone icons
+export { BookOpen as EduBookOpenIcon, Lightbulb as EduLightbulbIcon, Briefcase as EduBriefcaseIcon, GraduationCap as EduGraduationCapIcon, Users as EduUsersIcon, Rocket as EduRocketIcon, Palette as EduPaletteIcon, Film as EduFilmIcon, Landmark as EduLandmarkIcon, TrendingUp as EduTrendingUpIcon, Cpu as EduCpuIcon, FlaskConical as EduFlaskIcon, Atom as EduAtomIcon, Leaf as EduLeafIcon, Microscope as EduMicroscopeIcon, Paintbrush as EduPaintbrushIcon, Newspaper as EduNewspaperIcon, Megaphone as EduMegaphoneIcon };
+export { BookHeart as EduZoneIcon };
+export { BrainCog as EduBrainCogIcon };
+

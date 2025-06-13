@@ -1,3 +1,4 @@
+
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -46,17 +47,17 @@ export default function PlaceholderPage({ params }: PlaceholderPageProps) {
 }
 
 export async function generateStaticParams() {
-  // You can pre-render specific slugs if needed
-  // For now, we'll let it be dynamic
   const paths = [
-    { slug: "mental-health" },
-    { slug: "physical-fitness" },
-    { slug: "educational-zone" },
+    { slug: "mental-health" }, // Kept as placeholder if direct access needed
+    { slug: "physical-fitness" }, // Kept as placeholder if direct access needed
+    // "educational-zone" is removed as it has its own page now
     { slug: "programming-practice" },
     { slug: "ai-prompt-engineering" },
     { slug: "tasks" },
     { slug: "profile" },
     { slug: "settings" },
+    { slug: "book-mentor-session" }, // For career counseling button
   ];
   return paths;
 }
+
