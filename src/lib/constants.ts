@@ -1,6 +1,6 @@
 
 import type { LucideIcon } from 'lucide-react';
-import { Brain, Dumbbell, BookOpen, Code2, Sparkles, Home, ListChecks, User, Settings, Zap, Lightbulb, Puzzle, Target, Timer, Layers } from 'lucide-react';
+import { Brain, Dumbbell, BookOpen, Code2, Sparkles, Home, ListChecks, User, Settings, Zap, Lightbulb, Puzzle, Target, Timer, Layers, Move, Sunrise, Shield, Activity, Scale, BarChart3, ChevronRight } from 'lucide-react';
 
 export interface NavItem {
   title: string;
@@ -36,7 +36,7 @@ export const mindfulnessTips: string[] = [
   "Listen to a calming piece of music without distractions.",
   "Stretch your body gently for a few minutes.",
   "Think of one small act of kindness you can do today.",
-  "Observe your thoughts without judgment, like clouds passing in the sky.",
+  "Observe your thoughts without judgment, like clouds passing in thesky.",
   "Sip a warm drink mindfully, noticing its temperature, taste, and aroma."
 ];
 
@@ -108,3 +108,99 @@ export { Target as MindGymTargetIcon };
 export { Timer as MindGymTimerIcon };
 export { Layers as MindGymLayersIcon };
 export { Brain as MindGymBrainIcon };
+
+// Physical Fitness Section
+export interface HomeWorkout {
+  id: string;
+  title: string;
+  description: string;
+  icon: LucideIcon;
+  actionType: 'video' | 'gif' | 'text';
+  actionLink?: string; // For video/gif
+}
+
+export const homeWorkouts: HomeWorkout[] = [
+  { id: 'stretch', title: '5-Min Full Body Stretch', description: 'Gentle stretches for flexibility and relaxation.', icon: Move, actionType: 'text' },
+  { id: 'warmup', title: 'Morning Energizer', description: 'Quick routine to wake up your body.', icon: Sunrise, actionType: 'text' },
+  { id: 'cardio', title: '10-Min Cardio Blast', description: 'Jumping jacks, high knees, spot jogging.', icon: Zap, actionType: 'text' },
+  { id: 'core', title: 'Beginner Core Routine', description: 'Planks, crunches, and leg raises.', icon: Shield, actionType: 'text' },
+];
+
+export interface GymExercise {
+  name: string;
+  sets: string;
+  reps: string;
+  rest: string;
+}
+
+export interface GymWorkoutPlan {
+  id: string;
+  goal: 'Fat Loss' | 'Strength' | 'Muscle Gain';
+  title: string;
+  description: string;
+  exercises: GymExercise[];
+  icon: LucideIcon;
+}
+
+export const gymWorkoutPlans: GymWorkoutPlan[] = [
+  {
+    id: 'fatloss1',
+    goal: 'Fat Loss',
+    title: 'Lean Machine Circuit',
+    description: 'High-intensity circuit to maximize calorie burn.',
+    icon: Activity,
+    exercises: [
+      { name: 'Treadmill Run', sets: '1', reps: '20 mins', rest: 'N/A' },
+      { name: 'Bodyweight Squats', sets: '3', reps: '15-20', rest: '60s' },
+      { name: 'Push-ups', sets: '3', reps: 'As many as possible (AMRAP)', rest: '60s' },
+      { name: 'Burpees', sets: '3', reps: '10-12', rest: '90s' },
+    ],
+  },
+  {
+    id: 'strength1',
+    goal: 'Strength',
+    title: 'Foundational Strength',
+    description: 'Focus on compound lifts to build overall strength.',
+    icon: Dumbbell,
+    exercises: [
+      { name: 'Barbell Squats', sets: '5', reps: '5', rest: '2-3 mins' },
+      { name: 'Bench Press', sets: '5', reps: '5', rest: '2-3 mins' },
+      { name: 'Deadlifts', sets: '1', reps: '5', rest: '3-5 mins' },
+      { name: 'Overhead Press', sets: '3', reps: '8-10', rest: '90s' },
+    ],
+  },
+  {
+    id: 'musclegain1',
+    goal: 'Muscle Gain',
+    title: 'Hypertrophy Builder',
+    description: 'Volume-focused training for muscle growth.',
+    icon: Dumbbell, // Could use a different icon if available
+    exercises: [
+      { name: 'Dumbbell Bench Press', sets: '4', reps: '8-12', rest: '90s' },
+      { name: 'Lat Pulldowns', sets: '4', reps: '10-12', rest: '90s' },
+      { name: 'Leg Press', sets: '4', reps: '10-15', rest: '90s' },
+      { name: 'Bicep Curls', sets: '3', reps: '12-15', rest: '60s' },
+      { name: 'Tricep Pushdowns', sets: '3', reps: '12-15', rest: '60s' },
+    ],
+  },
+];
+
+export const bmiCategories: { [key: string]: { label: string; advice: string; colorClass: string } } = {
+  underweight: { label: 'Underweight', advice: 'Your BMI suggests you are underweight. Consider consulting a nutritionist for a healthy weight gain plan focusing on nutrient-dense foods.', colorClass: 'text-blue-400' },
+  normal: { label: 'Normal Weight', advice: 'Great! Your BMI is in the normal range. Maintain your healthy lifestyle with balanced nutrition and regular physical activity.', colorClass: 'text-green-400' },
+  overweight: { label: 'Overweight', advice: 'Your BMI indicates you are overweight. Focus on creating a sustainable calorie deficit through a balanced diet and increasing regular exercise. Aim for at least 150 minutes of moderate-intensity cardio per week.', colorClass: 'text-yellow-400' },
+  obese: { label: 'Obese', advice: 'Your BMI is in the obese range. It is highly advisable to consult a doctor or a registered dietitian for a personalized health plan. Gradual lifestyle changes are key.', colorClass: 'text-red-400' },
+};
+
+export const fitnessProgressMessages = [
+  "Keep going! You're stronger than yesterday.",
+  "Every step is progress, no matter how small.",
+  "Consistency is the key to unlocking your potential.",
+  "You're building a healthier, stronger you!",
+  "Don't stop until you're proud."
+];
+
+export { Scale as BmiIcon };
+export { BarChart3 as ProgressChartIcon };
+export { ChevronRight as RightArrowIcon };
+export { Dumbbell as FitnessIcon };
