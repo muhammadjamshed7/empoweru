@@ -21,12 +21,12 @@ export default function PlaceholderPage({ params }: PlaceholderPageProps) {
     <div className="container mx-auto px-4 py-8 flex flex-col items-center justify-center min-h-[calc(100vh-10rem)]">
       <Card className="w-full max-w-md text-center shadow-xl">
         <CardHeader>
-          <CardTitle className="font-headline text-3xl">
+          <CardTitle className="font-headline text-3xl break-words">
             {pageTitle}
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="text-muted-foreground mb-6">
+          <p className="text-muted-foreground mb-6 break-words">
             This section is currently under development. Check back soon for exciting updates!
           </p>
           <img 
@@ -48,17 +48,13 @@ export default function PlaceholderPage({ params }: PlaceholderPageProps) {
 
 export async function generateStaticParams() {
   const paths = [
-    { slug: "mental-health" }, // Kept for direct access if needed, though usually accessed via dashboard
-    { slug: "physical-fitness" }, // Kept for direct access
-    // "educational-zone" is removed as it has its own page now
-    // "programming-practice" is removed as it has its own page now
+    { slug: "mental-health" },
+    { slug: "physical-fitness" },
     { slug: "ai-prompt-engineering" },
     { slug: "tasks" },
     { slug: "profile" },
     { slug: "settings" },
-    { slug: "book-mentor-session" }, // For career counseling button
+    { slug: "book-mentor-session" }, 
   ];
   return paths;
 }
-
-```

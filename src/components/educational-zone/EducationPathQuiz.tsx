@@ -114,10 +114,10 @@ export function EducationPathQuiz() {
           <div className="mx-auto mb-3 inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary text-primary-foreground">
             <ResultIcon className="h-8 w-8" />
           </div>
-          <CardTitle className="font-headline text-2xl text-foreground">{recommendation.title}</CardTitle>
+          <CardTitle className="font-headline text-2xl text-foreground break-words">{recommendation.title}</CardTitle>
         </CardHeader>
         <CardContent className="p-0">
-          <p className="text-muted-foreground mb-6 font-body">{recommendation.text}</p>
+          <p className="text-muted-foreground mb-6 font-body break-words">{recommendation.text}</p>
           <Button onClick={handleRestartQuiz} variant="outline">
             <RotateCcw className="mr-2 h-4 w-4" /> Retake Quiz
           </Button>
@@ -130,15 +130,15 @@ export function EducationPathQuiz() {
 
   return (
     <div className="space-y-6">
-      <CardDescription className="text-center font-body text-muted-foreground">
+      <CardDescription className="text-center font-body text-muted-foreground break-words">
         Answer a few quick questions to find a learning direction that might suit you!
       </CardDescription>
       <Card className="shadow-md">
         <CardHeader className="pb-3">
-          <CardTitle className="font-headline text-lg text-foreground">
+          <CardTitle className="font-headline text-lg text-foreground break-words">
             Question {currentQuestionIndex + 1} / {educationPathQuizQuestions.length}
           </CardTitle>
-          <p className="font-body text-muted-foreground pt-1">{currentQuestion.text}</p>
+          <p className="font-body text-muted-foreground pt-1 break-words">{currentQuestion.text}</p>
         </CardHeader>
         <CardContent>
           <RadioGroup value={selectedOption} onValueChange={handleOptionChange} className="space-y-3">
@@ -152,7 +152,7 @@ export function EducationPathQuiz() {
                 )}
               >
                 <RadioGroupItem value={option.value} id={`${currentQuestion.id}-${option.value}`} />
-                <span className="font-body text-sm text-foreground">{option.text}</span>
+                <span className="font-body text-sm text-foreground break-words">{option.text}</span>
               </Label>
             ))}
           </RadioGroup>
@@ -167,4 +167,3 @@ export function EducationPathQuiz() {
     </div>
   );
 }
-

@@ -35,10 +35,10 @@ export function BmiCalculator() {
   const form = useForm<BmiFormValues>({
     resolver: zodResolver(bmiFormSchema),
     defaultValues: {
-      age: '', 
+      age: '' as unknown as number, // Ensure controlled from start
       gender: undefined,
-      height: '',
-      weight: '',
+      height: '' as unknown as number, // Ensure controlled from start
+      weight: '' as unknown as number, // Ensure controlled from start
     },
   });
 
@@ -47,17 +47,26 @@ export function BmiCalculator() {
     if (storedInputs) {
       try {
         const parsedInputs = JSON.parse(storedInputs) as Partial<BmiFormValues>;
-        // Validate before setting, though zod resolver will also catch it on submit
         const result = bmiFormSchema.partial().safeParse(parsedInputs);
         if (result.success) {
             Object.entries(result.data).forEach(([key, value]) => {
                 if (value !== undefined) {
                      form.setValue(key as keyof BmiFormValues, value as any);
+                } else if (key === 'age' || key === 'height' || key === 'weight') {
+                    form.setValue(key as keyof BmiFormValues, '' as any); // Ensure empty string if undefined from storage
                 }
             });
+        } else {
+          // If parsing fails, ensure inputs are reset to controlled empty strings
+          form.setValue('age', '' as unknown as number);
+          form.setValue('height', '' as unknown as number);
+          form.setValue('weight', '' as unknown as number);
         }
       } catch (error) {
         console.error("Failed to parse stored BMI inputs:", error);
+        form.setValue('age', '' as unknown as number);
+        form.setValue('height', '' as unknown as number);
+        form.setValue('weight', '' as unknown as number);
       }
     }
   }, [form]);
@@ -82,10 +91,10 @@ export function BmiCalculator() {
         <div className="p-2 bg-yellow-500/10 rounded-md">
             <BmiIcon className="h-7 w-7 text-yellow-400" />
         </div>
-        <CardTitle className="font-headline text-xl text-foreground dark:text-yellow-300">Calculate Your BMI</CardTitle>
+        <CardTitle className="font-headline text-xl text-foreground dark:text-yellow-300 break-words">Calculate Your BMI</CardTitle>
       </CardHeader>
       <CardContent>
-        <CardDescription className="text-sm mb-6 font-body text-muted-foreground dark:text-slate-400">
+        <CardDescription className="text-sm mb-6 font-body text-muted-foreground dark:text-slate-400 break-words">
           Body Mass Index (BMI) is a measure of body fat based on height and weight that applies to adult men and women.
         </CardDescription>
         <Form {...form}>
@@ -110,7 +119,7 @@ export function BmiCalculator() {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="dark:text-slate-300">Gender</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <Select onValueChange={field.onChange} value={field.value || ""} defaultValue={field.value || ""}>
                       <FormControl>
                         <SelectTrigger className="dark:bg-slate-800 dark:border-slate-700 dark:text-slate-200 focus:ring-yellow-500">
                           <SelectValue placeholder="Select gender" />
@@ -159,24 +168,24 @@ export function BmiCalculator() {
 
         {bmiResult && (
           <div className="mt-8 p-6 bg-muted/30 dark:bg-slate-800/50 rounded-lg border dark:border-slate-700">
-            <h3 className="font-headline text-xl mb-2 text-foreground dark:text-slate-200">Your Result:</h3>
-            <p className="text-3xl font-bold mb-1" style={{ color: `hsl(var(--${bmiCategories[bmiResult.categoryKey].colorClass.replace('text-', '')}-fg))` }}>
+            <h3 className="font-headline text-xl mb-2 text-foreground dark:text-slate-200 break-words">Your Result:</h3>
+            <p className="text-3xl font-bold mb-1 break-words" style={{ color: `hsl(var(--${bmiCategories[bmiResult.categoryKey].colorClass.replace('text-', '')}-fg))` }}>
                  Your BMI is <span className={cn("font-extrabold", bmiCategories[bmiResult.categoryKey].colorClass)}>{bmiResult.value.toFixed(1)}</span>
             </p>
-            <p className={cn("text-lg font-semibold mb-3", bmiCategories[bmiResult.categoryKey].colorClass)}>
+            <p className={cn("text-lg font-semibold mb-3 break-words", bmiCategories[bmiResult.categoryKey].colorClass)}>
                 Category: {bmiCategories[bmiResult.categoryKey].label}
             </p>
             <Card className="dark:bg-slate-800/70 border-dashed dark:border-slate-600">
               <CardHeader className="pb-2">
-                <CardTitle className="text-md font-semibold dark:text-slate-300">Fitness Advice:</CardTitle>
+                <CardTitle className="text-md font-semibold dark:text-slate-300 break-words">Fitness Advice:</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-muted-foreground dark:text-slate-400">
+                <p className="text-sm text-muted-foreground dark:text-slate-400 break-words">
                   {bmiCategories[bmiResult.categoryKey].advice}
                 </p>
               </CardContent>
             </Card>
-            <p className="text-xs text-muted-foreground mt-4 dark:text-slate-500">
+            <p className="text-xs text-muted-foreground mt-4 dark:text-slate-500 break-words">
               Note: BMI is a general indicator and may not be accurate for athletes or individuals with high muscle mass. Consult a healthcare professional for personalized advice.
             </p>
           </div>
@@ -185,4 +194,3 @@ export function BmiCalculator() {
     </Card>
   );
 }
-

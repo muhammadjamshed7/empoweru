@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Zap, Lightbulb } from "lucide-react";
@@ -23,29 +24,29 @@ export function MotivationalQuoteCard() {
         <div className="p-2 bg-accent/10 rounded-md">
           <Zap className="h-6 w-6 text-accent" />
         </div>
-        <CardTitle className="font-headline text-xl text-foreground">Daily Boost & Relaxation</CardTitle>
+        <CardTitle className="font-headline text-xl text-foreground break-words">Daily Boost & Relaxation</CardTitle>
       </CardHeader>
       <CardContent>
         {dailyQuote && (
           <div className="mb-6 p-4 border border-dashed border-accent/50 rounded-lg bg-accent/5">
-            <p className="text-center font-semibold text-accent-foreground font-body text-lg italic">
+            <p className="text-center font-semibold text-accent-foreground font-body text-lg italic break-words">
               "{dailyQuote}"
             </p>
           </div>
         )}
         
         <div>
-          <h4 className="font-headline text-lg text-foreground mb-3 flex items-center">
+          <h4 className="font-headline text-lg text-foreground mb-3 flex items-center break-words">
             <Lightbulb className="h-5 w-5 mr-2 text-primary" />
             Quick Relaxation Techniques
           </h4>
           <Accordion type="single" collapsible className="w-full">
             {relaxationTips.map((tip, index) => (
               <AccordionItem value={`item-${index}`} key={index}>
-                <AccordionTrigger className="font-body text-base hover:no-underline">
+                <AccordionTrigger className="font-body text-base hover:no-underline text-left break-words">
                   {tip.title}
                 </AccordionTrigger>
-                <AccordionContent className="font-body text-sm text-muted-foreground">
+                <AccordionContent className="font-body text-sm text-muted-foreground break-words">
                   {tip.description}
                 </AccordionContent>
               </AccordionItem>

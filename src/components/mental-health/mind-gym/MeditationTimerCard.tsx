@@ -72,10 +72,10 @@ export function MeditationTimerCard() {
         <div className="p-2 bg-secondary/20 rounded-md">
           <MindGymTimerIcon className="h-5 w-5 text-secondary-foreground" />
         </div>
-        <CardTitle className="font-headline text-lg text-foreground">Guided Meditation Timer</CardTitle>
+        <CardTitle className="font-headline text-lg text-foreground break-words">Guided Meditation Timer</CardTitle>
       </CardHeader>
       <CardContent className="pt-2">
-        <CardDescription className="font-body text-sm mb-4">
+        <CardDescription className="font-body text-sm mb-4 break-words">
           Choose a duration and find a quiet space to meditate.
         </CardDescription>
         

@@ -17,10 +17,10 @@ export default function EducationalZonePage() {
         <div className="inline-flex items-center justify-center bg-primary/10 text-primary p-3 rounded-full mb-4">
           <BookHeart className="h-10 w-10" />
         </div>
-        <h1 className="font-headline text-4xl font-bold text-foreground">
+        <h1 className="font-headline text-4xl font-bold text-foreground break-words">
           Learn. Grow. Choose Wisely.
         </h1>
-        <p className="text-lg text-muted-foreground mt-2 font-body">
+        <p className="text-lg text-muted-foreground mt-2 font-body break-words">
           Your journey to knowledge and self-discovery starts here.
         </p>
       </header>
@@ -28,7 +28,7 @@ export default function EducationalZonePage() {
       <div className="space-y-12">
         <Card className="shadow-xl">
           <CardHeader>
-            <CardTitle className="flex items-center font-headline text-2xl text-foreground">
+            <CardTitle className="flex items-center font-headline text-2xl text-foreground break-words">
               <Lightbulb className="mr-3 h-7 w-7 text-accent" />
               Study Smart: Tips for Success
             </CardTitle>
@@ -40,7 +40,7 @@ export default function EducationalZonePage() {
 
         <Card className="shadow-xl">
           <CardHeader>
-            <CardTitle className="flex items-center font-headline text-2xl text-foreground">
+            <CardTitle className="flex items-center font-headline text-2xl text-foreground break-words">
               <Briefcase className="mr-3 h-7 w-7 text-accent" />
               Career Guidance Corner
             </CardTitle>
@@ -54,7 +54,7 @@ export default function EducationalZonePage() {
 
         <Card className="shadow-xl">
           <CardHeader>
-            <CardTitle className="flex items-center font-headline text-2xl text-foreground">
+            <CardTitle className="flex items-center font-headline text-2xl text-foreground break-words">
               <GraduationCap className="mr-3 h-7 w-7 text-accent" />
               Education Path Builder
             </CardTitle>

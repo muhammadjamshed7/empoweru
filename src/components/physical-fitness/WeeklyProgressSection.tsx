@@ -70,6 +70,7 @@ export function WeeklyProgressSection() {
   }, []);
 
   useEffect(() => {
+    // This effect should run only on the client after hydration
     const storedLogs = localStorage.getItem(LOCAL_STORAGE_KEY_ACTIVITIES);
     const parsedLogs = storedLogs ? JSON.parse(storedLogs) : [];
     setActivityLogs(parsedLogs);
@@ -82,8 +83,12 @@ export function WeeklyProgressSection() {
 
   useEffect(() => {
     const getDailyMessage = () => {
-      const dayOfYear = Math.floor((new Date().getTime() - new Date(new Date().getFullYear(), 0, 0).getTime()) / (1000 * 60 * 60 * 24));
-      return fitnessProgressMessages[dayOfYear % fitnessProgressMessages.length];
+      // Ensure this runs only on client
+      if (typeof window !== 'undefined') {
+        const dayOfYear = Math.floor((new Date().getTime() - new Date(new Date().getFullYear(), 0, 0).getTime()) / (1000 * 60 * 60 * 24));
+        return fitnessProgressMessages[dayOfYear % fitnessProgressMessages.length];
+      }
+      return "";
     };
     setDailyMessage(getDailyMessage());
   }, []);
@@ -120,10 +125,10 @@ export function WeeklyProgressSection() {
         <div className="p-2 bg-purple-500/10 rounded-md">
           <ProgressChartIcon className="h-7 w-7 text-purple-400" />
         </div>
-        <CardTitle className="font-headline text-xl text-foreground dark:text-purple-300">Track Your Journey</CardTitle>
+        <CardTitle className="font-headline text-xl text-foreground dark:text-purple-300 break-words">Track Your Journey</CardTitle>
       </CardHeader>
       <CardContent>
-        <p className="text-muted-foreground dark:text-slate-400 mb-2 font-body">
+        <p className="text-muted-foreground dark:text-slate-400 mb-2 font-body break-words">
           Log your activities to see your weekly progress. Data is stored locally.
         </p>
         <div className="flex flex-wrap gap-2 mb-6">
@@ -171,7 +176,7 @@ export function WeeklyProgressSection() {
                   key={key} 
                   dataKey={key} 
                   stackId="a" 
-                  fill={`var(--color-${key.toLowerCase()})`} // Ensure color key is lowercase if chartConfig uses it
+                  fill={`var(--color-${key.toLowerCase()})`} 
                   radius={[4, 4, 0, 0]} 
                   name={value.label}
                 />
@@ -182,7 +187,7 @@ export function WeeklyProgressSection() {
 
         {dailyMessage && (
           <div className="p-4 border border-dashed border-purple-500/50 dark:border-purple-600 rounded-lg bg-purple-500/5 dark:bg-slate-800/50">
-            <p className="text-center font-semibold text-purple-600 dark:text-purple-300 font-body text-lg italic">
+            <p className="text-center font-semibold text-purple-600 dark:text-purple-300 font-body text-lg italic break-words">
               "{dailyMessage}"
             </p>
           </div>
@@ -191,4 +196,3 @@ export function WeeklyProgressSection() {
     </Card>
   );
 }
-

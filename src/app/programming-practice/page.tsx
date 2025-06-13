@@ -25,15 +25,15 @@ const pythonTopics: PythonTopic[] = [
     title: "What is Python?",
     explanation: (
       <>
-        <p className="mb-2">Python is a popular, high-level, and versatile programming language known for its readability and simplicity. It's widely used in web development, data science, artificial intelligence, machine learning, automation, and more.</p>
-        <p>Its design philosophy emphasizes code readability with its notable use of significant indentation. Python is dynamically-typed and garbage-collected. It supports multiple programming paradigms, including structured (particularly, procedural), object-oriented and functional programming.</p>
+        <p className="mb-2 break-words">Python is a popular, high-level, and versatile programming language known for its readability and simplicity. It's widely used in web development, data science, artificial intelligence, machine learning, automation, and more.</p>
+        <p className="break-words">Its design philosophy emphasizes code readability with its notable use of significant indentation. Python is dynamically-typed and garbage-collected. It supports multiple programming paradigms, including structured (particularly, procedural), object-oriented and functional programming.</p>
       </>
     ),
   },
   {
     id: "variables",
     title: "Variables and Data Types",
-    explanation: "Variables are containers for storing data values. Python has various data types, including:",
+    explanation: <p className="break-words">Variables are containers for storing data values. Python has various data types, including:</p>,
     codeExample: `
 # String (text)
 name = "Alice"
@@ -55,7 +55,7 @@ print(is_student)
   {
     id: "operators",
     title: "Basic Operators",
-    explanation: "Operators are used to perform operations on variables and values.",
+    explanation: <p className="break-words">Operators are used to perform operations on variables and values.</p>,
     codeExample: `
 # Arithmetic Operators
 a = 10
@@ -79,7 +79,7 @@ print(x < y)  # Less than: True
   {
     id: "controlflow",
     title: "Control Flow: if/else Statements",
-    explanation: "Conditional statements allow you to execute code blocks based on whether a condition is true or false.",
+    explanation: <p className="break-words">Conditional statements allow you to execute code blocks based on whether a condition is true or false.</p>,
     codeExample: `
 temperature = 25
 
@@ -94,7 +94,7 @@ else:
   {
     id: "loops",
     title: "Loops: for and while",
-    explanation: "Loops are used to execute a block of code repeatedly.",
+    explanation: <p className="break-words">Loops are used to execute a block of code repeatedly.</p>,
     codeExample: `
 # For loop (iterating over a sequence)
 fruits = ["apple", "banana", "cherry"]
@@ -111,7 +111,7 @@ while count < 5:
   {
     id: "functions",
     title: "Functions",
-    explanation: "Functions are blocks of reusable code that perform a specific task. They help organize code and make it more modular.",
+    explanation: <p className="break-words">Functions are blocks of reusable code that perform a specific task. They help organize code and make it more modular.</p>,
     codeExample: `
 # Defining a function
 def greet(name):
@@ -140,7 +140,7 @@ export default function ProgrammingPracticePage() {
         <h1 className="font-headline text-4xl font-bold text-foreground">
           Programming Practice: Python Basics
         </h1>
-        <p className="text-lg text-muted-foreground mt-2 font-body">
+        <p className="text-lg text-muted-foreground mt-2 font-body break-words">
           Start your coding journey with these fundamental Python concepts.
         </p>
       </header>
@@ -148,7 +148,7 @@ export default function ProgrammingPracticePage() {
       <Card className="shadow-xl mb-12">
         <CardHeader>
           <CardTitle className="font-headline text-2xl text-foreground">Core Python Concepts</CardTitle>
-          <CardDescription className="font-body">
+          <CardDescription className="font-body break-words">
             Expand each section to learn about key Python features.
           </CardDescription>
         </CardHeader>
@@ -160,7 +160,7 @@ export default function ProgrammingPracticePage() {
                   {topic.title}
                 </AccordionTrigger>
                 <AccordionContent className="p-4 pt-0 space-y-3">
-                  <div className="text-muted-foreground font-body">{topic.explanation}</div>
+                  <div className="text-muted-foreground font-body break-words">{topic.explanation}</div>
                   {topic.codeExample && (
                     <div className="mt-4 p-3 bg-muted/50 dark:bg-slate-800/50 rounded-md overflow-x-auto">
                       <pre><code className="text-sm font-code text-foreground dark:text-slate-300">{topic.codeExample.trim()}</code></pre>
@@ -183,4 +183,3 @@ export default function ProgrammingPracticePage() {
     </div>
   );
 }
-```

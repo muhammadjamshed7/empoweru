@@ -13,10 +13,10 @@ export function PositiveAffirmationsSection() {
         <div className="p-2 bg-primary/10 rounded-md">
           <MindGymLayersIcon className="h-5 w-5 text-primary" />
         </div>
-        <CardTitle className="font-headline text-lg text-foreground">Positive Affirmation Flip Cards</CardTitle>
+        <CardTitle className="font-headline text-lg text-foreground break-words">Positive Affirmation Flip Cards</CardTitle>
       </CardHeader>
       <CardContent className="pt-2">
-        <CardDescription className="font-body text-sm mb-4">
+        <CardDescription className="font-body text-sm mb-4 break-words">
           Tap a card to flip it and reveal an uplifting message.
         </CardDescription>
         <ScrollArea className="w-full whitespace-nowrap rounded-md pb-4">

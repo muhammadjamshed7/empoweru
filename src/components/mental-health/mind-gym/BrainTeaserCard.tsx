@@ -24,7 +24,7 @@ export function BrainTeaserCard() {
     return (
       <Card className="bg-card/80 backdrop-blur-sm shadow-lg">
         <CardHeader>
-          <CardTitle>Loading Brain Teaser...</CardTitle>
+          <CardTitle className="break-words">Loading Brain Teaser...</CardTitle>
         </CardHeader>
       </Card>
     );
@@ -36,10 +36,10 @@ export function BrainTeaserCard() {
         <div className="p-2 bg-primary/10 rounded-md">
           <MindGymPuzzleIcon className="h-5 w-5 text-primary" />
         </div>
-        <CardTitle className="font-headline text-lg text-foreground">Brain Teaser of the Day</CardTitle>
+        <CardTitle className="font-headline text-lg text-foreground break-words">Brain Teaser of the Day</CardTitle>
       </CardHeader>
       <CardContent className="pt-2">
-        <CardDescription className="font-body text-base mb-3 min-h-[40px]">{dailyTeaser.riddle}</CardDescription>
+        <CardDescription className="font-body text-base mb-3 min-h-[40px] break-words">{dailyTeaser.riddle}</CardDescription>
         <Button
           variant="outline"
           size="sm"
@@ -50,7 +50,7 @@ export function BrainTeaserCard() {
           {showAnswer ? <ChevronUp className="ml-2 h-4 w-4" /> : <ChevronDown className="ml-2 h-4 w-4" />}
         </Button>
         {showAnswer && (
-          <p className="mt-3 p-3 bg-primary/5 border border-primary/20 rounded-md text-primary-foreground font-semibold font-body text-center">
+          <p className="mt-3 p-3 bg-primary/5 border border-primary/20 rounded-md text-primary-foreground font-semibold font-body text-center break-words">
             Answer: {dailyTeaser.answer}
           </p>
         )}

@@ -28,30 +28,30 @@ function CareerPathCard({ path }: { path: CareerPath }) {
       <AccordionTrigger className="hover:no-underline bg-muted/50 dark:bg-slate-800/50 px-4 py-3 rounded-t-md data-[state=open]:rounded-b-none">
         <div className="flex items-center space-x-3">
           <PathIcon className="h-6 w-6 text-primary" />
-          <span className="font-semibold text-foreground text-left">{path.title}</span>
+          <span className="font-semibold text-foreground text-left break-words">{path.title}</span>
         </div>
       </AccordionTrigger>
       <AccordionContent className="p-4 space-y-3 bg-background dark:bg-slate-900/80 rounded-b-md border border-t-0 dark:border-slate-700">
-        <p className="text-sm text-muted-foreground">{path.description}</p>
+        <p className="text-sm text-muted-foreground break-words">{path.description}</p>
         <div>
-          <h4 className="font-semibold text-sm text-foreground mb-1">Required Skills:</h4>
+          <h4 className="font-semibold text-sm text-foreground mb-1 break-words">Required Skills:</h4>
           <ul className="list-disc list-inside text-sm text-muted-foreground space-y-0.5">
-            {path.requiredSkills.map(skill => <li key={skill}>{skill}</li>)}
+            {path.requiredSkills.map(skill => <li key={skill} className="break-words">{skill}</li>)}
           </ul>
         </div>
         <div>
-          <h4 className="font-semibold text-sm text-foreground mb-1">Sample Job Roles:</h4>
+          <h4 className="font-semibold text-sm text-foreground mb-1 break-words">Sample Job Roles:</h4>
           <ul className="list-disc list-inside text-sm text-muted-foreground space-y-0.5">
-            {path.sampleJobRoles.map(role => <li key={role}>{role}</li>)}
+            {path.sampleJobRoles.map(role => <li key={role} className="break-words">{role}</li>)}
           </ul>
         </div>
-        <div className="flex items-center text-sm text-muted-foreground">
+        <div className="flex items-center text-sm text-muted-foreground break-words">
           <DollarSign className="h-4 w-4 mr-2 text-green-500" /> Salary: {path.salaryExpectations}
         </div>
         <div>
-          <h4 className="font-semibold text-sm text-foreground mb-1">Study Recommendations:</h4>
+          <h4 className="font-semibold text-sm text-foreground mb-1 break-words">Study Recommendations:</h4>
           <ul className="list-disc list-inside text-sm text-muted-foreground space-y-0.5">
-            {path.studyRecommendations.map(rec => <li key={rec}>{rec}</li>)}
+            {path.studyRecommendations.map(rec => <li key={rec} className="break-words">{rec}</li>)}
           </ul>
         </div>
       </AccordionContent>
@@ -63,9 +63,6 @@ export function CareerGuidanceSection() {
   const [selectedInterestId, setSelectedInterestId] = useState<string>(careerInterests[0].id);
 
   const selectedInterest = careerInterests.find(interest => interest.id === selectedInterestId);
-  // This InterestIcon is for the main display, not the select items. It's correctly used later.
-  // const InterestIcon = selectedInterest ? interestIconMap[selectedInterest.icon] : Briefcase;
-
 
   return (
     <div className="space-y-6">
@@ -89,7 +86,7 @@ export function CareerGuidanceSection() {
           </SelectContent>
         </Select>
         {selectedInterest && (
-          <p className="text-sm text-muted-foreground flex-1">
+          <p className="text-sm text-muted-foreground flex-1 break-words">
             {selectedInterest.description}
           </p>
         )}

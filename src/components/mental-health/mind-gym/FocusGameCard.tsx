@@ -38,7 +38,6 @@ export function FocusGameCard() {
     };
   };
 
-  // Effect for game timer and dot movement
   useEffect(() => {
     if (gameActive) {
       setDotPosition(getRandomPosition()); 
@@ -51,41 +50,30 @@ export function FocusGameCard() {
         setTimeLeft((prevTimeLeft) => {
           if (prevTimeLeft <= 1) {
             if (timerIntervalRef.current) clearInterval(timerIntervalRef.current); 
-            timerIntervalRef.current = null;
-            return 0; 
+            timerIntervalRef.current = null; // Important to nullify after clearing
+            return 0; // Signal timer completion
           }
           return prevTimeLeft - 1; 
         });
       }, 1000);
     } else {
-      // Game is not active, clear intervals
-      if (dotMoveIntervalRef.current) {
-        clearInterval(dotMoveIntervalRef.current);
-        dotMoveIntervalRef.current = null;
-      }
-      if (timerIntervalRef.current) {
-        clearInterval(timerIntervalRef.current);
-        timerIntervalRef.current = null;
-      }
+      if (dotMoveIntervalRef.current) clearInterval(dotMoveIntervalRef.current);
+      if (timerIntervalRef.current) clearInterval(timerIntervalRef.current);
+      dotMoveIntervalRef.current = null;
+      timerIntervalRef.current = null;
     }
 
     return () => {
-      // Cleanup all intervals on unmount or if gameActive changes state
-      if (dotMoveIntervalRef.current) {
-        clearInterval(dotMoveIntervalRef.current);
-        dotMoveIntervalRef.current = null;
-      }
-      if (timerIntervalRef.current) {
-        clearInterval(timerIntervalRef.current);
-        timerIntervalRef.current = null;
-      }
+      if (dotMoveIntervalRef.current) clearInterval(dotMoveIntervalRef.current);
+      if (timerIntervalRef.current) clearInterval(timerIntervalRef.current);
+      dotMoveIntervalRef.current = null;
+      timerIntervalRef.current = null;
     };
   }, [gameActive]);
 
-  // Effect to handle game ending when timeLeft reaches 0
   useEffect(() => {
     if (timeLeft === 0 && gameActive) { 
-      // Ensure dot movement interval is cleared
+      // Ensure dot movement interval is cleared as a safeguard
       if (dotMoveIntervalRef.current) {
         clearInterval(dotMoveIntervalRef.current);
         dotMoveIntervalRef.current = null;
@@ -93,6 +81,7 @@ export function FocusGameCard() {
       
       setGameActive(false); 
 
+      // Defer toast to avoid state update conflicts
       setTimeout(() => {
         toast({ title: "Game Over!", description: `Your score: ${scoreRef.current}` });
       }, 0);
@@ -103,6 +92,7 @@ export function FocusGameCard() {
     setScore(0);
     setTimeLeft(GAME_DURATION);
     setGameActive(true); 
+    // Defer toast
     setTimeout(() => {
         toast({ title: "Game Started!", description: "Tap the moving dot." });
     }, 0);
@@ -111,7 +101,6 @@ export function FocusGameCard() {
   const handleDotClick = () => {
     if (gameActive) {
       setScore((prevScore) => prevScore + 1);
-      // Move dot immediately and reset its move interval
       setDotPosition(getRandomPosition());
       if (dotMoveIntervalRef.current) {
         clearInterval(dotMoveIntervalRef.current);
@@ -128,10 +117,10 @@ export function FocusGameCard() {
         <div className="p-2 bg-accent/10 rounded-md">
           <MindGymTargetIcon className="h-5 w-5 text-accent" />
         </div>
-        <CardTitle className="font-headline text-lg text-foreground">Focus Game: Tap the Dot</CardTitle>
+        <CardTitle className="font-headline text-lg text-foreground break-words">Focus Game: Tap the Dot</CardTitle>
       </CardHeader>
       <CardContent className="pt-2">
-        <CardDescription className="font-body text-sm mb-3">
+        <CardDescription className="font-body text-sm mb-3 break-words">
           Test your focus! Tap the dot as many times as you can in {GAME_DURATION} seconds.
         </CardDescription>
         
@@ -164,8 +153,8 @@ export function FocusGameCard() {
             <Button onClick={startGame} className="font-body">Start Game</Button>
           ) : (
             <div className="text-center">
-              <p className="font-body text-lg">Time Left: <span className="font-bold text-primary">{timeLeft}s</span></p>
-              <p className="font-body text-lg">Score: <span className="font-bold text-accent">{score}</span></p>
+              <p className="font-body text-lg break-words">Time Left: <span className="font-bold text-primary">{timeLeft}s</span></p>
+              <p className="font-body text-lg break-words">Score: <span className="font-bold text-accent">{score}</span></p>
             </div>
           )}
         </div>

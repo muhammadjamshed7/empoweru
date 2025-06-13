@@ -13,9 +13,9 @@ export function CareerCounselingBanner() {
         <div className="flex-1 space-y-3">
           <div className="flex items-center">
             <Lightbulb className="h-8 w-8 mr-3 text-yellow-300" />
-            <h3 className="font-headline text-2xl">Why Career Counseling Matters</h3>
+            <h3 className="font-headline text-2xl break-words">Why Career Counseling Matters</h3>
           </div>
-          <p className="text-base font-body">
+          <p className="text-base font-body break-words">
             Choosing a career early builds clarity and reduces anxiety.
             Speak to mentors or explore options based on your passion, not pressure.
           </p>

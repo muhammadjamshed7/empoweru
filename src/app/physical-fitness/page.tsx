@@ -20,17 +20,17 @@ export default function PhysicalFitnessPage() {
         <div className="inline-flex items-center justify-center bg-green-500/10 text-green-400 p-3 rounded-full mb-4">
           <FitnessIcon className="h-10 w-10" />
         </div>
-        <h1 className="font-headline text-4xl font-bold text-foreground dark:text-green-300">
+        <h1 className="font-headline text-4xl font-bold text-foreground dark:text-green-300 break-words">
           Stay Fit. Stay Strong.
         </h1>
-        <p className="text-lg text-muted-foreground mt-2 font-body">
+        <p className="text-lg text-muted-foreground mt-2 font-body break-words">
           Your journey to a healthier you starts now.
         </p>
       </header>
 
       {/* Home Workout Routines Section */}
       <section className="mb-12">
-        <h2 className="font-headline text-2xl font-semibold mb-4 text-foreground dark:text-green-400">Home Workouts</h2>
+        <h2 className="font-headline text-2xl font-semibold mb-4 text-foreground dark:text-green-400 break-words">Home Workouts</h2>
         <ScrollArea className="w-full whitespace-nowrap rounded-md">
           <div className="flex space-x-4 pb-4">
             {homeWorkouts.map((workout) => (
@@ -43,19 +43,19 @@ export default function PhysicalFitnessPage() {
 
       {/* Gym Workout Plans Section */}
       <section className="mb-12">
-         <h2 className="font-headline text-2xl font-semibold mb-4 text-foreground dark:text-green-400">Gym Workout Plans</h2>
+         <h2 className="font-headline text-2xl font-semibold mb-4 text-foreground dark:text-green-400 break-words">Gym Workout Plans</h2>
         <GymWorkoutPlan plans={gymWorkoutPlans} />
       </section>
 
       {/* BMI Calculator Section */}
       <section className="mb-12">
-        <h2 className="font-headline text-2xl font-semibold mb-4 text-foreground dark:text-green-400">BMI Calculator &amp; Advice</h2>
+        <h2 className="font-headline text-2xl font-semibold mb-4 text-foreground dark:text-green-400 break-words">BMI Calculator &amp; Advice</h2>
         <BmiCalculator />
       </section>
 
       {/* Weekly Progress Tracker Section */}
       <section className="mb-12">
-        <h2 className="font-headline text-2xl font-semibold mb-4 text-foreground dark:text-green-400">Your Progress</h2>
+        <h2 className="font-headline text-2xl font-semibold mb-4 text-foreground dark:text-green-400 break-words">Your Progress</h2>
         <WeeklyProgressSection />
       </section>
 

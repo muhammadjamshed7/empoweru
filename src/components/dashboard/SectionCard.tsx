@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -19,12 +20,12 @@ export function SectionCard({ title, description, icon: Icon, href }: SectionCar
           <Icon className="h-8 w-8" />
         </div>
         <div>
-          <CardTitle className="font-headline text-xl">{title}</CardTitle>
+          <CardTitle className="font-headline text-xl break-words">{title}</CardTitle>
         </div>
       </CardHeader>
       <CardContent className="flex-grow">
         {description && (
-          <CardDescription className="text-sm mb-4">{description}</CardDescription>
+          <CardDescription className="text-sm mb-4 break-words">{description}</CardDescription>
         )}
       </CardContent>
       <div className="p-6 pt-0 mt-auto">

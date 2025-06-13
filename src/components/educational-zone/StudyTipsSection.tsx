@@ -31,10 +31,10 @@ function StudyTipCard({ tip }: StudyTipCardProps) {
         <div className="p-2 bg-primary/10 rounded-md">
           <TipIcon className="h-6 w-6 text-primary" />
         </div>
-        <CardTitle className="text-sm font-semibold text-primary-foreground">{tip.ageGroup}</CardTitle>
+        <CardTitle className="text-sm font-semibold text-primary-foreground break-words">{tip.ageGroup}</CardTitle>
       </CardHeader>
       <CardContent className="flex-grow">
-        <p className="text-sm text-muted-foreground font-body">{tip.tip}</p>
+        <p className="text-sm text-muted-foreground font-body break-words">{tip.tip}</p>
       </CardContent>
     </Card>
   );

@@ -24,10 +24,10 @@ export default function MentalHealthPage() {
         <div className="inline-flex items-center justify-center bg-primary/10 text-primary p-3 rounded-full mb-4">
           <Brain className="h-10 w-10" />
         </div>
-        <h1 className="font-headline text-4xl font-bold text-foreground">
+        <h1 className="font-headline text-4xl font-bold text-foreground break-words">
           Your Mental Space
         </h1>
-        <p className="text-lg text-muted-foreground mt-2 font-body">
+        <p className="text-lg text-muted-foreground mt-2 font-body break-words">
           “Peace begins with a deep breath.”
         </p>
       </header>

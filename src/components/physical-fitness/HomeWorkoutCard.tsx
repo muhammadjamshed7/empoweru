@@ -56,11 +56,11 @@ export function HomeWorkoutCard({ workout }: HomeWorkoutCardProps) {
             <div className="p-2 bg-green-500/10 rounded-md">
               <WorkoutIcon className="h-7 w-7 text-green-400" />
             </div>
-            <CardTitle className="font-headline text-lg text-foreground dark:text-green-300">{workout.title}</CardTitle>
+            <CardTitle className="font-headline text-lg text-foreground dark:text-green-300 break-words">{workout.title}</CardTitle>
           </div>
         </CardHeader>
         <CardContent className="flex flex-col flex-grow">
-          <CardDescription className="text-sm mb-4 font-body text-muted-foreground dark:text-slate-400 flex-grow min-h-[40px]">{workout.description}</CardDescription>
+          <CardDescription className="text-sm mb-4 font-body text-muted-foreground dark:text-slate-400 flex-grow min-h-[40px] break-words">{workout.description}</CardDescription>
           <Button onClick={handleStartWorkout} variant="default" className="w-full mt-auto font-body bg-green-500 hover:bg-green-600 text-background dark:text-slate-900 dark:hover:bg-green-400">
             Start Routine <ChevronRight className="ml-2 h-4 w-4" />
           </Button>
