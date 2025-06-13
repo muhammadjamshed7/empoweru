@@ -24,13 +24,36 @@ interface PythonTopic {
 const pythonTopics: PythonTopic[] = [
   {
     id: "intro",
-    title: "What is Python?",
+    title: "What is Python & Why Learn It?",
     explanation: (
       <>
-        <p className="mb-2 break-words">Python is a popular, high-level, and versatile programming language known for its readability and simplicity. It's like speaking a language that's very close to English, which makes it easier to learn, especially for beginners!</p>
-        <p className="mb-2 break-words">It's widely used in many exciting fields: building websites (like Instagram and YouTube!), analyzing data (data science), creating smart programs (artificial intelligence and machine learning), automating repetitive tasks, and much more.</p>
-        <p className="mb-2 break-words">Python's design emphasizes clean and readable code. It uses indentation (spaces at the beginning of a line) to define code blocks, which helps keep things organized. It's also dynamically-typed, meaning you don't have to explicitly declare the type of a variable (like number or text) – Python figures it out for you!</p>
-        <p className="break-words">It supports multiple ways of programming, including writing step-by-step instructions (procedural), organizing code into "objects" (object-oriented), and using functions in a mathematical style (functional programming).</p>
+        <p className="mb-2 break-words">Python is a popular, high-level, and incredibly versatile programming language known for its readability and simplicity. It's often described as being close to plain English, making it an excellent choice for beginners and a powerful tool for experienced developers.</p>
+        <p className="font-semibold mt-3 mb-1 break-words">Key Advantages of Python:</p>
+        <ul className="list-disc list-inside space-y-1 mb-2 break-words">
+          <li><strong>Easy to Learn & Read:</strong> Clean syntax focuses on code readability.</li>
+          <li><strong>Vast Libraries & Frameworks:</strong> A rich standard library and extensive third-party packages (like NumPy, Pandas, Requests) simplify complex tasks.</li>
+          <li><strong>Large Community Support:</strong> Abundant resources, tutorials, and a helpful global community.</li>
+          <li><strong>Cross-Platform Compatibility:</strong> Python runs on Windows, macOS, Linux, and other systems.</li>
+          <li><strong>Highly Scalable:</strong> Suitable for small scripts to large, complex applications.</li>
+        </ul>
+        <p className="font-semibold mt-3 mb-1 break-words">What Can You Do With Python?</p>
+        <p className="mb-2 break-words">Python's versatility opens doors to numerous exciting career paths and applications:</p>
+        <ul className="list-disc list-inside space-y-1 mb-2 break-words">
+          <li>
+            <strong>Full-Stack Web Development:</strong> Build dynamic websites and web applications using powerful frameworks like <strong>Django</strong> (for robust, large-scale projects) and <strong>Flask</strong> (for lightweight, flexible applications). Python handles both the backend (server-side logic, databases) and can integrate with frontend technologies.
+          </li>
+          <li>
+            <strong>Data Science & Analytics:</strong> Analyze data, create visualizations, and extract meaningful insights. Libraries like <strong>Pandas</strong> for data manipulation, <strong>NumPy</strong> for numerical operations, and <strong>Matplotlib/Seaborn</strong> for plotting are industry standards.
+          </li>
+          <li>
+            <strong>Machine Learning & Artificial Intelligence (AI):</strong> Develop predictive models, natural language processing tools, computer vision systems, and more. Python is the go-to language for AI/ML with libraries like <strong>Scikit-learn</strong>, <strong>TensorFlow</strong>, and <strong>PyTorch</strong>.
+          </li>
+          <li><strong>Automation & Scripting:</strong> Automate repetitive tasks, manage systems, and write utility scripts to improve efficiency.</li>
+          <li><strong>Scientific & Numeric Computing:</strong> Used extensively in research, engineering, and academia for complex calculations.</li>
+          <li><strong>Game Development:</strong> Libraries like Pygame allow for the creation of 2D games.</li>
+          <li><strong>Desktop GUIs:</strong> Build user-friendly desktop applications with toolkits like Tkinter or PyQt.</li>
+        </ul>
+        <p className="break-words">Learning Python provides a solid foundation for many tech careers and empowers you to build amazing things!</p>
       </>
     ),
   },
@@ -123,9 +146,9 @@ print(x > 5)  # Greater than: True
 # Logical Operators
 is_sunny = True
 is_warm = False
-print(is_sunny and is_warm) # False
-print(is_sunny or is_warm)  # True
-print(not is_warm)          # True
+print(is_sunny and is_warm) # False (both must be true)
+print(is_sunny or is_warm)  # True (at least one is true)
+print(not is_warm)          # True (reverses the boolean)
 
 # Assignment Operators
 count = 5
@@ -455,25 +478,25 @@ export default function ProgrammingPracticePage() {
           Programming Practice: Python Basics
         </h1>
         <p className="text-lg text-muted-foreground mt-2 font-body break-words">
-          Start your coding journey with these fundamental Python concepts.
+          Start your coding journey with these fundamental Python concepts and discover its power.
         </p>
       </header>
 
-      <Card className="shadow-xl mb-12">
+      <Card className="shadow-xl mb-12 bg-card">
         <CardHeader>
           <CardTitle className="font-headline text-2xl text-foreground flex items-center">
             <Map className="mr-3 h-7 w-7 text-accent" /> {/* Roadmap Icon */}
             Your Python Learning Roadmap
           </CardTitle>
           <CardDescription className="font-body break-words">
-            Follow these steps to build a solid foundation in Python.
+            Follow these steps to build a solid foundation in Python. This roadmap can lead you to exciting opportunities in various tech fields!
           </CardDescription>
         </CardHeader>
         <CardContent>
           <ol className="list-decimal list-inside space-y-4 text-muted-foreground font-body">
             <li>
               <strong>Master the Fundamentals:</strong>
-              <p className="pl-4 break-words">Understand variables, data types (numbers, strings, booleans), and basic operators. This is your building block!</p>
+              <p className="pl-4 break-words">Understand "What is Python?", variables, data types (numbers, strings, booleans), and basic operators. This is your building block!</p>
             </li>
             <li>
               <strong>Control the Flow:</strong>
@@ -492,22 +515,18 @@ export default function ProgrammingPracticePage() {
               <p className="pl-4 break-words">Learn about <code>try-except</code> blocks to anticipate and manage potential runtime errors in your programs, making them more robust and user-friendly.</p>
             </li>
             <li>
-              <strong>Next Steps - Object-Oriented Programming (OOP):</strong>
-              <p className="pl-4 break-words">Once you're comfortable with the basics, get a glimpse into classes and objects, a powerful paradigm for structuring larger and more complex applications.</p>
-            </li>
-            <li>
-              <strong>Next Steps - Explore Libraries & Frameworks:</strong>
-              <p className="pl-4 break-words">Discover Python's rich standard library for common tasks. As you advance, explore third-party libraries for specific domains like web development (e.g., Django, Flask), data science (e.g., NumPy, Pandas, Matplotlib), and more.</p>
-            </li>
-            <li>
               <strong>Practice Consistently:</strong>
               <p className="pl-4 break-words">The key to mastering programming is consistent practice! Build small projects, solve coding challenges, and don't be afraid to experiment.</p>
+            </li>
+            <li>
+              <strong>Next Steps - Explore Further:</strong>
+              <p className="pl-4 break-words">Once comfortable, dive into Object-Oriented Programming (OOP), explore Python's rich standard library, and discover third-party libraries for specific domains like web development (e.g., Django, Flask for full-stack), data science (e.g., NumPy, Pandas), or machine learning (e.g., Scikit-learn, TensorFlow).</p>
             </li>
           </ol>
         </CardContent>
       </Card>
 
-      <Card className="shadow-xl mb-12">
+      <Card className="shadow-xl mb-12 bg-card">
         <CardHeader>
           <CardTitle className="font-headline text-2xl text-foreground">Core Python Concepts</CardTitle>
           <CardDescription className="font-body break-words">
@@ -517,12 +536,12 @@ export default function ProgrammingPracticePage() {
         <CardContent>
           <Accordion type="multiple" className="w-full space-y-3">
             {pythonTopics.map((topic) => (
-              <AccordionItem key={topic.id} value={topic.id} className="border dark:border-slate-700 rounded-lg shadow-sm bg-card">
-                <AccordionTrigger className="p-4 hover:no-underline font-semibold text-left">
+              <AccordionItem key={topic.id} value={topic.id} className="border dark:border-slate-700 rounded-lg shadow-sm bg-background dark:bg-slate-800/30">
+                <AccordionTrigger className="p-4 hover:no-underline font-semibold text-left text-foreground">
                   {topic.title}
                 </AccordionTrigger>
                 <AccordionContent className="p-4 pt-0 space-y-3">
-                  <div className="text-muted-foreground font-body prose prose-sm max-w-none dark:prose-invert prose-p:break-words prose-li:break-words">{topic.explanation}</div>
+                  <div className="text-muted-foreground font-body prose prose-sm max-w-none dark:prose-invert prose-p:break-words prose-li:break-words prose-strong:text-foreground/90 dark:prose-strong:text-slate-300 prose-code:bg-muted/80 prose-code:dark:bg-slate-700/80 prose-code:p-0.5 prose-code:rounded-sm prose-code:font-code prose-code:text-foreground dark:prose-code:text-slate-300">{topic.explanation}</div>
                   {topic.codeExample && (
                     <div className="mt-4 p-3 bg-muted/50 dark:bg-slate-800/50 rounded-md overflow-x-auto">
                       <pre><code className="text-sm font-code text-foreground dark:text-slate-300">{topic.codeExample.trim()}</code></pre>
@@ -535,7 +554,7 @@ export default function ProgrammingPracticePage() {
         </CardContent>
       </Card>
 
-      <Card className="shadow-xl mb-12">
+      <Card className="shadow-xl mb-12 bg-card">
         <CardHeader>
           <CardTitle className="font-headline text-2xl text-foreground flex items-center">
              <CheckSquare className="mr-3 h-7 w-7 text-accent" />
@@ -551,7 +570,7 @@ export default function ProgrammingPracticePage() {
       </Card>
 
 
-      <div className="text-center">
+      <div className="text-center mt-10">
         <Button asChild variant="outline" size="lg">
           <Link href="/">
             <ArrowLeft className="mr-2 h-5 w-5" /> Back to Dashboard
@@ -561,4 +580,3 @@ export default function ProgrammingPracticePage() {
     </div>
   );
 }
-
