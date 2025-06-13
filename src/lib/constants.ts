@@ -1,6 +1,6 @@
 
 import type { LucideIcon } from 'lucide-react';
-import { Brain, Dumbbell, BookOpen, Code2, Sparkles, Home, ListChecks, User, Settings, Zap, Lightbulb, Puzzle, Target, Timer, Layers, Move, Sunrise, Shield, Activity, Scale, BarChart3, ChevronRight, Briefcase, GraduationCap, Users, Rocket, Palette, Film, Landmark, TrendingUp, Cpu, FlaskConical, Atom, Leaf, Microscope, Paintbrush, Newspaper, Megaphone, BookHeart, BrainCog, Bot, BrainCircuit, ExternalLink, Map } from 'lucide-react';
+import { Brain, Dumbbell, BookOpen, Code2, Sparkles, Home, ListChecks, User, Settings, Zap, Lightbulb, Puzzle, Target, Timer, Layers, Move, Sunrise, Shield, Activity, Scale, BarChart3, ChevronRight, Briefcase, GraduationCap, Users, Rocket, Palette, Film, Landmark, TrendingUp, Cpu, FlaskConical, Atom, Leaf, Microscope, Paintbrush, Newspaper, Megaphone, BookHeart, BrainCog, Bot, BrainCircuit, ExternalLink, Map, CheckSquare } from 'lucide-react';
 
 export interface NavItem {
   title: string;
@@ -447,6 +447,28 @@ export const pythonQuizData: PythonQuizDifficulty[] = [
           { text: "10/2", isCorrect: false },
         ],
         explanation: "In Python 3, division (/) always results in a float."
+      },
+      {
+        id: 'e4',
+        questionText: "What is the data type of the value `True` in Python?",
+        options: [
+          { text: "string", isCorrect: false },
+          { text: "integer", isCorrect: false },
+          { text: "boolean", isCorrect: true },
+          { text: "float", isCorrect: false },
+        ],
+        explanation: "`True` and `False` are boolean values in Python, represented by the `bool` data type."
+      },
+      {
+        id: 'e5',
+        questionText: "Which symbol is used to start a single-line comment in Python?",
+        options: [
+          { text: "//", isCorrect: false },
+          { text: "#", isCorrect: true },
+          { text: "/*", isCorrect: false },
+          { text: "--", isCorrect: false },
+        ],
+        explanation: "The `#` symbol is used for single-line comments in Python. Anything after `#` on the same line is ignored by the interpreter."
       }
     ]
   },
@@ -485,6 +507,28 @@ export const pythonQuizData: PythonQuizDifficulty[] = [
           { text: "my_dict('name')", isCorrect: false },
         ],
         explanation: "You use square bracket notation `my_dict['key']` or the `get()` method `my_dict.get('key')` to access values in a dictionary."
+      },
+      {
+        id: 'i4',
+        questionText: "What is the output of `print(7 // 2)` in Python?",
+        options: [
+          { text: "3.5", isCorrect: false },
+          { text: "3", isCorrect: true },
+          { text: "4", isCorrect: false },
+          { text: "Error", isCorrect: false },
+        ],
+        explanation: "The `//` operator performs floor division, which divides and rounds down to the nearest whole number. So, 7 divided by 2 is 3.5, and rounding down gives 3."
+      },
+      {
+        id: 'i5',
+        questionText: "Consider the code: `count = 10`. What is the value of `count` after the statement `count -= 3` is executed?",
+        options: [
+          { text: "10", isCorrect: false },
+          { text: "3", isCorrect: false },
+          { text: "7", isCorrect: true },
+          { text: "13", isCorrect: false },
+        ],
+        explanation: "The `-=` operator is an assignment operator that subtracts the right operand from the left operand and assigns the result back to the left operand. So, `count -= 3` is equivalent to `count = count - 3`."
       }
     ]
   },
@@ -511,7 +555,7 @@ export const pythonQuizData: PythonQuizDifficulty[] = [
           { text: "[3, 4, 5]", isCorrect: false },
           { text: "Error", isCorrect: false },
         ],
-        explanation: "Slicing with `[-2:]` starts from the second to last element and goes to the end of the list."
+        explanation: "Slicing with `[-2:]` starts from the second to last element (index -2) and goes to the end of the list."
       },
        {
         id: 'h3',
@@ -523,6 +567,28 @@ export const pythonQuizData: PythonQuizDifficulty[] = [
           { text: "An error will occur", isCorrect: false },
         ],
         explanation: "If a function doesn't have an explicit `return` statement, or has a `return` statement without a value, it implicitly returns `None`."
+      },
+      {
+        id: 'h4',
+        questionText: "What is the output of the following code snippet?\n```python\nmy_dict = {'fruit': 'apple', 'color': 'red'}\nprint(my_dict.get('size', 'medium'))\n```",
+        options: [
+          { text: "'apple'", isCorrect: false },
+          { text: "'red'", isCorrect: false },
+          { text: "'medium'", isCorrect: true },
+          { text: "Error", isCorrect: false },
+        ],
+        explanation: "The `get()` method for dictionaries returns the value for a specified key. If the key is not found (like 'size' here), it returns the default value provided (in this case, 'medium'), instead of raising a KeyError."
+      },
+      {
+        id: 'h5',
+        questionText: "Which of the following statements best describes Python lists?",
+        options: [
+          { text: "Lists are immutable, meaning their elements cannot be changed after creation.", isCorrect: false },
+          { text: "Lists can only store items of the same data type.", isCorrect: false },
+          { text: "Lists are ordered collections and their elements can be changed after creation (mutable).", isCorrect: true },
+          { text: "List elements are accessed by key-value pairs.", isCorrect: false },
+        ],
+        explanation: "Python lists are ordered (maintain the sequence of items), mutable (elements can be changed, added, or removed after creation), and can store items of different data types. Dictionaries use key-value pairs for access."
       }
     ]
   }
@@ -536,5 +602,7 @@ export { BrainCog as EduBrainCogIcon };
 
 // Export new icons for AI/Tech page
 export { Bot as BotIcon, BrainCircuit as BrainCircuitIcon, ExternalLink as ExternalLinkIcon };
-export { Map as MapIcon };
+export { Map as MapIcon, CheckSquare as CheckSquareIcon };
+    
+
     
