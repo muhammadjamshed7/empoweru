@@ -1,6 +1,6 @@
 
 import type { LucideIcon } from 'lucide-react';
-import { Brain, Dumbbell, BookOpen, Code2, Sparkles, Home, ListChecks, User, Settings, Zap, Lightbulb, Puzzle, Target, Timer, Layers, Move, Sunrise, Shield, Activity, Scale, BarChart3, ChevronRight, Briefcase, GraduationCap, Users, Rocket, Palette, Film, Landmark, TrendingUp, Cpu, FlaskConical, Atom, Leaf, Microscope, Paintbrush, Newspaper, Megaphone, BookHeart, BrainCog, Bot, BrainCircuit, ExternalLink, Map, CheckSquare, Pill, Stethoscope, HeartPulse } from 'lucide-react';
+import { Brain, Dumbbell, BookOpen, Code2, Sparkles, Home, ListChecks, User, Settings, Zap, Lightbulb, Puzzle, Target, Timer, Layers, Move, Sunrise, Shield, Activity, Scale, BarChart3, ChevronRight, Briefcase, GraduationCap, Users, Rocket, Palette, Film, Landmark, TrendingUp, Cpu, FlaskConical, Atom, Leaf, Microscope, Paintbrush, Newspaper, Megaphone, BookHeart, BrainCog, Bot, BrainCircuit, ExternalLink, Map, CheckSquare, Pill, Stethoscope, HeartPulse, MessageCircle } from 'lucide-react';
 
 export interface NavItem {
   title: string;
@@ -15,6 +15,7 @@ export const dashboardSections: NavItem[] = [
   { title: "Educational Zone", href: "/educational-zone", icon: BookHeart, description: "Expand your knowledge & find your path." },
   { title: "Programming Practice", href: "/programming-practice", icon: Code2, description: "Sharpen your coding skills with Python." },
   { title: "AI & Modern Tech", href: "/ai-prompt-engineering", icon: Sparkles, description: "Master AI and explore trending technologies." },
+  { title: "Let's chat with AI", href: "/ai-chat", icon: MessageCircle, description: "Have a conversation with an AI assistant." },
 ];
 
 export const bottomNavItems: NavItem[] = [
@@ -684,4 +685,8 @@ export { Map as MapIcon, CheckSquare as CheckSquareIcon };
 export { Pill as PillIcon, Stethoscope as StethoscopeIcon };
 // Export icons for Healthcare general
 export { HeartPulse as HeartPulseIcon };
+// Export icon for AI Chat
+export { MessageCircle as AIChatIcon };
+    
+
     

@@ -48,6 +48,10 @@ export default function PlaceholderPage({ params }: PlaceholderPageProps) {
 
 export async function generateStaticParams() {
   const paths = [
+    // Removed "programming-practice" as it has its own page
+    // Removed "book-mentor-session" as it has its own page
+    // Removed "ai-prompt-engineering" as it has its own page
+    // "ai-chat" will have its own page, so not needed here either.
     { slug: "tasks" },
     { slug: "profile" },
     { slug: "settings" },
