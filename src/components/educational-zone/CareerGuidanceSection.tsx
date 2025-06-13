@@ -63,7 +63,8 @@ export function CareerGuidanceSection() {
   const [selectedInterestId, setSelectedInterestId] = useState<string>(careerInterests[0].id);
 
   const selectedInterest = careerInterests.find(interest => interest.id === selectedInterestId);
-  const InterestIcon = selectedInterest ? interestIconMap[selectedInterest.icon] : Briefcase;
+  // This InterestIcon is for the main display, not the select items. It's correctly used later.
+  // const InterestIcon = selectedInterest ? interestIconMap[selectedInterest.icon] : Briefcase;
 
 
   return (
@@ -74,14 +75,17 @@ export function CareerGuidanceSection() {
             <SelectValue placeholder="Select an interest area" />
           </SelectTrigger>
           <SelectContent className="dark:bg-slate-800 dark:border-slate-700">
-            {careerInterests.map(interest => (
-              <SelectItem key={interest.id} value={interest.id} className="dark:text-slate-300 dark:focus:bg-slate-700">
-                <div className="flex items-center">
-                  {(interestIconMap[interest.icon] || Briefcase)({ className: "h-4 w-4 mr-2"})}
-                  {interest.name}
-                </div>
-              </SelectItem>
-            ))}
+            {careerInterests.map(interest => {
+              const ItemIcon = interestIconMap[interest.icon] || Briefcase;
+              return (
+                <SelectItem key={interest.id} value={interest.id} className="dark:text-slate-300 dark:focus:bg-slate-700">
+                  <div className="flex items-center">
+                    <ItemIcon className="h-4 w-4 mr-2" />
+                    {interest.name}
+                  </div>
+                </SelectItem>
+              );
+            })}
           </SelectContent>
         </Select>
         {selectedInterest && (
