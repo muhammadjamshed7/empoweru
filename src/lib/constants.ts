@@ -13,7 +13,7 @@ export const dashboardSections: NavItem[] = [
   { title: "Mental Health", href: "/mental-health", icon: Brain, description: "Nurture your mind and well-being." },
   { title: "Physical Fitness", href: "/physical-fitness", icon: Dumbbell, description: "Stay active and energized." },
   { title: "Educational Zone", href: "/educational-zone", icon: BookHeart, description: "Expand your knowledge & find your path." },
-  { title: "Programming Practice", href: "/programming-practice", icon: Code2, description: "Sharpen your coding skills." },
+  { title: "Programming Practice", href: "/programming-practice", icon: Code2, description: "Sharpen your coding skills with Python." },
   { title: "AI Prompt Engineering", href: "/ai-prompt-engineering", icon: Sparkles, description: "Master the art of AI communication." },
 ];
 
@@ -357,4 +357,3 @@ export const quizRecommendations: QuizRecommendation[] = [
 export { BookOpen as EduBookOpenIcon, Lightbulb as EduLightbulbIcon, Briefcase as EduBriefcaseIcon, GraduationCap as EduGraduationCapIcon, Users as EduUsersIcon, Rocket as EduRocketIcon, Palette as EduPaletteIcon, Film as EduFilmIcon, Landmark as EduLandmarkIcon, TrendingUp as EduTrendingUpIcon, Cpu as EduCpuIcon, FlaskConical as EduFlaskIcon, Atom as EduAtomIcon, Leaf as EduLeafIcon, Microscope as EduMicroscopeIcon, Paintbrush as EduPaintbrushIcon, Newspaper as EduNewspaperIcon, Megaphone as EduMegaphoneIcon };
 export { BookHeart as EduZoneIcon };
 export { BrainCog as EduBrainCogIcon };
-

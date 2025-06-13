@@ -48,10 +48,10 @@ export default function PlaceholderPage({ params }: PlaceholderPageProps) {
 
 export async function generateStaticParams() {
   const paths = [
-    { slug: "mental-health" }, // Kept as placeholder if direct access needed
-    { slug: "physical-fitness" }, // Kept as placeholder if direct access needed
+    { slug: "mental-health" }, // Kept for direct access if needed, though usually accessed via dashboard
+    { slug: "physical-fitness" }, // Kept for direct access
     // "educational-zone" is removed as it has its own page now
-    { slug: "programming-practice" },
+    // "programming-practice" is removed as it has its own page now
     { slug: "ai-prompt-engineering" },
     { slug: "tasks" },
     { slug: "profile" },
@@ -61,3 +61,4 @@ export async function generateStaticParams() {
   return paths;
 }
 
+```
