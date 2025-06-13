@@ -54,7 +54,6 @@ export async function generateStaticParams() {
     { slug: "tasks" },
     { slug: "profile" },
     { slug: "settings" },
-    { slug: "book-mentor-session" }, 
   ];
   return paths;
 }
