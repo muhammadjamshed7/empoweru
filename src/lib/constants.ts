@@ -1,6 +1,6 @@
 
 import type { LucideIcon } from 'lucide-react';
-import { Brain, Dumbbell, BookOpen, Code2, Sparkles, Home, ListChecks, User, Settings, Zap, Lightbulb, Puzzle, Target, Timer, Layers, Move, Sunrise, Shield, Activity, Scale, BarChart3, ChevronRight, Briefcase, GraduationCap, Users, Rocket, Palette, Film, Landmark, TrendingUp, Cpu, LightbulbFilament, BookHeart, BrainCog } from 'lucide-react';
+import { Brain, Dumbbell, BookOpen, Code2, Sparkles, Home, ListChecks, User, Settings, Zap, Lightbulb, Puzzle, Target, Timer, Layers, Move, Sunrise, Shield, Activity, Scale, BarChart3, ChevronRight, Briefcase, GraduationCap, Users, Rocket, Palette, Film, Landmark, TrendingUp, Cpu, FlaskConical, Atom, Leaf, Microscope, Paintbrush, Newspaper, Megaphone, BookHeart, BrainCog } from 'lucide-react';
 
 export interface NavItem {
   title: string;
@@ -350,7 +350,7 @@ export const quizRecommendations: QuizRecommendation[] = [
   { id: 'rec_general_science', categories: ['science'], title: 'Curious Scientist', text: 'Your curiosity for science is a great asset! Consider looking into Biology, Chemistry, Physics, or even Astronomy. The world of discovery awaits!', icon: 'Atom' },
   { id: 'rec_general_arts', categories: ['arts'], title: 'Artistic Soul', text: 'Your passion for arts and humanities shines through! Explore areas like Creative Writing, Visual Arts, Music, or History. Express yourself and share your unique perspective.', icon: 'Paintbrush' },
   { id: 'rec_general_business', categories: ['business'], title: 'Future Entrepreneur', text: 'You have an inclination towards business and organization! Fields like Project Management, Marketing, or starting your own venture could be very rewarding.', icon: 'TrendingUp' },
-  { id: 'rec_default', categories: [], title: 'Explorer of All Trades!', text: 'You have a mix of interests! That\'s fantastic. Keep exploring different subjects and activities to discover what truly excites you. Many careers combine skills from various fields.', icon: 'LightbulbFilament' },
+  { id: 'rec_default', categories: [], title: 'Explorer of All Trades!', text: 'You have a mix of interests! That\'s fantastic. Keep exploring different subjects and activities to discover what truly excites you. Many careers combine skills from various fields.', icon: 'Lightbulb' },
 ];
 
 // Placeholder for educational zone icons

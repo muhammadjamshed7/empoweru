@@ -7,10 +7,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
-import { Lightbulb, CheckCircle2, RotateCcw, Cpu, FlaskConical, Palette, Briefcase, Rocket, Atom, Paintbrush, TrendingUp, LightbulbFilament, LucideIcon } from "lucide-react";
+import { Lightbulb, CheckCircle2, RotateCcw, Cpu, FlaskConical, Palette, Briefcase, Rocket, Atom, Paintbrush, TrendingUp, LucideIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const recommendationIconMap: { [key: string]: LucideIcon } = {
-  Cpu, FlaskConical, Palette, Briefcase, Rocket, Atom, Paintbrush, TrendingUp, LightbulbFilament
+  Cpu, FlaskConical, Palette, Briefcase, Rocket, Atom, Paintbrush, TrendingUp, Lightbulb
 };
 
 export function EducationPathQuiz() {
@@ -166,3 +167,4 @@ export function EducationPathQuiz() {
     </div>
   );
 }
+
