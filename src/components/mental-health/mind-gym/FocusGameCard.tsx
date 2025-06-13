@@ -5,7 +5,6 @@ import { useState, useEffect, useRef } from "react";
 import { MindGymTargetIcon } from "@/lib/constants";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 
 const GAME_AREA_SIZE = 200; // px
@@ -18,10 +17,17 @@ export function FocusGameCard() {
   const [gameActive, setGameActive] = useState(false);
   const [score, setScore] = useState(0);
   const [timeLeft, setTimeLeft] = useState(GAME_DURATION);
+  
   const gameAreaRef = useRef<HTMLDivElement>(null);
   const timerIntervalRef = useRef<NodeJS.Timeout | null>(null);
   const dotMoveIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  
   const { toast } = useToast();
+  const scoreRef = useRef(score);
+
+  useEffect(() => {
+    scoreRef.current = score;
+  }, [score]);
 
   const getRandomPosition = () => {
     const maxX = GAME_AREA_SIZE - DOT_SIZE;
@@ -32,50 +38,64 @@ export function FocusGameCard() {
     };
   };
 
+  const endGame = useCallback(() => {
+    setGameActive(false); // This will trigger the useEffect cleanup for intervals
+    // Defer the toast to prevent updates during render phase of other components
+    setTimeout(() => {
+      toast({ title: "Game Over!", description: `Your score: ${scoreRef.current}` });
+    }, 0);
+  }, [toast]); // setGameActive is stable, scoreRef.current is accessed inside
+
   useEffect(() => {
+    const clearAllIntervals = () => {
+      if (timerIntervalRef.current) {
+        clearInterval(timerIntervalRef.current);
+        timerIntervalRef.current = null;
+      }
+      if (dotMoveIntervalRef.current) {
+        clearInterval(dotMoveIntervalRef.current);
+        dotMoveIntervalRef.current = null;
+      }
+    };
+
     if (gameActive) {
-      setDotPosition(getRandomPosition()); // Initial position
+      setDotPosition(getRandomPosition()); 
       
       dotMoveIntervalRef.current = setInterval(() => {
         setDotPosition(getRandomPosition());
       }, DOT_MOVE_INTERVAL);
 
       timerIntervalRef.current = setInterval(() => {
-        setTimeLeft((prevTime) => {
-          if (prevTime <= 1) {
-            endGame();
-            return 0;
+        setTimeLeft((prevTimeLeft) => {
+          if (prevTimeLeft <= 1) {
+            clearAllIntervals(); 
+            endGame(); 
+            return 0; 
           }
-          return prevTime - 1;
+          return prevTimeLeft - 1; 
         });
       }, 1000);
     } else {
-      if (timerIntervalRef.current) clearInterval(timerIntervalRef.current);
-      if (dotMoveIntervalRef.current) clearInterval(dotMoveIntervalRef.current);
+      clearAllIntervals();
     }
+
     return () => {
-      if (timerIntervalRef.current) clearInterval(timerIntervalRef.current);
-      if (dotMoveIntervalRef.current) clearInterval(dotMoveIntervalRef.current);
+      clearAllIntervals();
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [gameActive]);
+  }, [gameActive, endGame]);
 
   const startGame = () => {
     setScore(0);
+    scoreRef.current = 0; 
     setTimeLeft(GAME_DURATION);
-    setGameActive(true);
+    setGameActive(true); 
     toast({ title: "Game Started!", description: "Tap the moving dot." });
-  };
-
-  const endGame = () => {
-    setGameActive(false);
-    toast({ title: "Game Over!", description: `Your score: ${score}` });
   };
 
   const handleDotClick = () => {
     if (gameActive) {
       setScore((prevScore) => prevScore + 1);
-      setDotPosition(getRandomPosition()); // Move dot immediately after click
+      setDotPosition(getRandomPosition()); 
     }
   };
 
