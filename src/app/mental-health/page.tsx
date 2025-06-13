@@ -1,12 +1,11 @@
 import { ArrowLeft, Brain } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MindfulnessTipCard } from "@/components/mental-health/MindfulnessTipCard";
 import { BreathingAnimation } from "@/components/mental-health/BreathingAnimation";
 import { MoodTracker } from "@/components/mental-health/MoodTracker";
 import { JournalEntry } from "@/components/mental-health/JournalEntry";
-import { RelaxationPlaylist } from "@/components/mental-health/RelaxationPlaylist";
+import { MotivationalQuoteCard } from "@/components/mental-health/MotivationalQuoteCard";
 import { mindfulnessTips } from "@/lib/constants";
 
 export default function MentalHealthPage() {
@@ -41,7 +40,7 @@ export default function MentalHealthPage() {
         <JournalEntry />
       </div>
       
-      <RelaxationPlaylist />
+      <MotivationalQuoteCard />
 
       <div className="mt-12 text-center">
         <Button asChild variant="outline" size="lg">

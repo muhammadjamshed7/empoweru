@@ -1,5 +1,5 @@
 import type { LucideIcon } from 'lucide-react';
-import { Brain, Dumbbell, BookOpen, Code2, Sparkles, Home, ListChecks, User, Settings } from 'lucide-react';
+import { Brain, Dumbbell, BookOpen, Code2, Sparkles, Home, ListChecks, User, Settings, Zap, Lightbulb } from 'lucide-react';
 
 export interface NavItem {
   title: string;
@@ -37,4 +37,40 @@ export const mindfulnessTips: string[] = [
   "Think of one small act of kindness you can do today.",
   "Observe your thoughts without judgment, like clouds passing in the sky.",
   "Sip a warm drink mindfully, noticing its temperature, taste, and aroma."
+];
+
+export const motivationalQuotes: string[] = [
+  "The best way to predict the future is to create it. - Peter Drucker",
+  "Believe you can and you're halfway there. - Theodore Roosevelt",
+  "The only way to do great work is to love what you do. - Steve Jobs",
+  "Your limitation—it's only your imagination.",
+  "Push yourself, because no one else is going to do it for you.",
+  "Every moment is a fresh beginning. - T.S. Eliot",
+  "Strive for progress, not perfection.",
+  "The secret of getting ahead is getting started. - Mark Twain",
+  "You are stronger than you think.",
+  "Small steps every day lead to big results."
+];
+
+export const relaxationTips: { title: string; description: string }[] = [
+  {
+    title: "Focus on Your Breath",
+    description: "Take slow, deep breaths. Inhale through your nose for 4 counts, hold for 4, and exhale slowly through your mouth for 6 counts."
+  },
+  {
+    title: "Mindful Observation",
+    description: "Pick an object around you and focus on its details - color, texture, shape. This helps ground you in the present."
+  },
+  {
+    title: "Gentle Stretch",
+    description: "Slowly stretch your neck, shoulders, and back to release tension. Even a few minutes can make a difference."
+  },
+  {
+    title: "Quick Walk",
+    description: "If possible, step away and take a brief walk, even if it's just around the room or office. Movement helps clear the mind."
+  },
+  {
+    title: "Progressive Muscle Relaxation",
+    description: "Tense and then relax different muscle groups in your body, starting from your toes and working your way up to your head."
+  }
 ];
